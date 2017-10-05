@@ -6,11 +6,12 @@ const styles = {
   navLinks: {
     border: 'solid #2980b9',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    padding: 20
   },
   links: {
     textDecoration: 'none',
-    color: 'blue'
+    color: '#2980b9'
   }
 }
 const enhancer = injectSheet(styles)
