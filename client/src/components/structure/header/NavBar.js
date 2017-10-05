@@ -4,7 +4,7 @@ import injectSheet from 'react-jss'
 
 const styles = {
   navLinks: {
-    border: 'solid red',
+    border: 'solid #2980b9',
     display: 'flex',
     justifyContent: 'space-between'
   },

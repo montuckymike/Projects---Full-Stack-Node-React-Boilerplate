@@ -10,6 +10,20 @@ import Login from '../pages/user/Login'
 import TopTen from '../pages/user/TopTen'
 import UserProfile from '../pages/user/UserProfile'
 import Randomizer from '../pages/user/Randomizer'
+import injectSheet from 'react-jss'
+
+const styles = {
+  main: {
+    position: 'fixed',
+    padding: 0,
+    top: 50,
+    bottom: 25,
+    left: 0,
+    right: 0
+  }
+}
+
+const enhancer = injectSheet(styles)
 
 const Main = () => {
   return (
@@ -55,4 +69,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default enhancer(Main)
