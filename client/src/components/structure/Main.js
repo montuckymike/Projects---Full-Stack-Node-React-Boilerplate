@@ -9,6 +9,7 @@ import CreateUser from '../pages/user/CreateUser'
 import Login from '../pages/user/Login'
 import TopTen from '../pages/user/TopTen'
 import UserProfile from '../pages/user/UserProfile'
+import Randomizer from '../pages/user/Randomizer'
 
 const Main = () => {
   return (
@@ -45,6 +46,10 @@ const Main = () => {
       <Route
         path='/UserProfile'
         render={() => <UserProfile />}
+      />
+      <Route
+        path='Randomizer'
+        render={() => <Randomizer />}
       />
     </div>
   )
