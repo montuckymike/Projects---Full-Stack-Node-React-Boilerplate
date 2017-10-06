@@ -1,4 +1,5 @@
 import React from 'react'
+import Avatar from 'material-ui/Avatar';
 
 const AddDrink = () => {
   return (
