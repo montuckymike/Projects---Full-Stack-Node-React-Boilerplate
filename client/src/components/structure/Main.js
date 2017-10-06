@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 import Home from '../pages/Home'
-import AddDrink from '../pages/admin/AddDrink'
+import AddDrinkContainer from '../pages/admin/AddDrinkContainer'
 import AllDrinks from '../pages/admin/AllDrinks'
 import EditDrink from '../pages/admin/EditDrink'
 import ListUsers from '../pages/admin/ListUsers'
@@ -31,7 +31,7 @@ const Main = () => {
       <Route path='/'exact component={Home} />
       <Route
         path='/AddDrink'
-        render={() => <AddDrink />}
+        render={() => <AddDrinkContainer />}
       />
       <Route
         path='/AllDrinks'
