@@ -13,7 +13,7 @@ const enhancer = injectSheet(styles)
 const UserProfile = (props) => {
   return (
     <div className={props.classes.userProfile}>
-      UserProfile
+      Profile
     </div>
   )
 }
