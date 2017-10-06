@@ -12,7 +12,8 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundImage: 'url("https://burst.shopifycdn.com/photos/friends-drinking-coffee_925x.jpg")',
-    clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)'
+    clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
+    position: 'relative'
   },
   heroText: {
     color: 'white',
@@ -32,11 +33,11 @@ const styles = {
     float: 'right'
   },
   heroFunPic: {
-    marginTop: 100,
-    marginRight: 200,
     width: '25%',
     'z-index': '1',
-    position: 'relative'
+    position: 'absolute',
+    top: 0,
+    right: 0
   },
   buttonDiv: {
     display: 'flex',
@@ -69,7 +70,7 @@ const Home = (props) => {
         <h1> Rest of Page Stuff </h1>
         <h1> Rest of Page Stuff </h1>
         <h1> Rest of Page Stuff </h1>
-        <h1> Rest of Page Stuff </h1>
+        <h1> Changes  Stuff </h1>
         <h1> Another trivial change </h1>
         <h1> Trivial Change to Home  </h1>
         <h1> Test of Page Stuff </h1>
