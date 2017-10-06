@@ -17,10 +17,11 @@ const styles = {
     justifyContent: 'flex-end'
   },
   gImg: {
-    border: 'solid purple',
+    border: 'solid #2980b9',
     height: '2em',
     width: '2em',
-    borderRadius: '25%'
+    borderRadius: '25%',
+    margin: '2%'
   }
 }
 const enhancer = injectSheet(styles)
