@@ -40,8 +40,6 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "material-ui": "next",
-    "material-ui-icons": "^1.0.0-beta.15",
-    "typeface-roboto": "^0.0.35"
+    
   }
 }
