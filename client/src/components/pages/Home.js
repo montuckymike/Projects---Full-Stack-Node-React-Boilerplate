@@ -67,6 +67,12 @@ const Home = (props) => {
       </div>
       <div>
         <h1> Rest of Page Stuff </h1>
+        <h1> Rest of Page Stuff </h1>
+        <h1> Rest of Page Stuff </h1>
+        <h1> Rest of Page Stuff </h1>
+        <h1> Rest of Page Stuff </h1>
+        <h1> Rest of Page Stuff </h1>
+        <h1> Rest of Page Stuff </h1>
       </div>
     </div>
   )
