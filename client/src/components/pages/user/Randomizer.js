@@ -5,10 +5,11 @@ const styles = {
   main: {
     border: 'solid pink',
     backgroundImage: "url('images/AppPageBackgroundpossible.jpg')",
-    width: '100vw',
-    height: '100vh',
+    width: '73.5vw',
+    height: '85vh',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    paddingBottom: '1000'
   },
   button: {
     display: 'flex',
