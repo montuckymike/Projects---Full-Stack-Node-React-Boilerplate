@@ -60,7 +60,7 @@ const Home = (props) => {
             <h1 className={props.classes.heroTitle}> Start Randomizing Now! </h1>
           </div>
           <div className={props.classes.buttonDiv}>
-            Login Stuff???
+            <button> Randomize </button>
           </div>
         </div>
         <img className={props.classes.heroFunPic} src='http://www.pngmart.com/files/4/Coffee-Cup-PNG-Free-Download.png' />
