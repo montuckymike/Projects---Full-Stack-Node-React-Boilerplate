@@ -37,7 +37,7 @@ class TextFields extends React.Component {
     email: '',
     password: '',
     preferences: ''
-  };
+  }
 
   handleChange = name => event => {
     this.setState({
