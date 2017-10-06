@@ -1,11 +1,35 @@
 import React from 'react'
+import injectSheet from 'react-jss'
 
-const Randomizer = () => {
+const styles = {
+  main: {
+    border: 'solid pink',
+    backgroundImage: "url('images/AppPageBackgroundpossible.jpg')",
+    width: '100vw',
+    height: '100vh',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+  },
+  button: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20em',
+    height: '8em',
+    color: 'black',
+    borderRadius: '7px'
+  }
+}
+
+const enhancer = injectSheet(styles)
+
+const Randomizer = (props) => {
   return (
-    <div>
-      Randomizer
+    <div className={props.classes.main}>
+      <h1>The Randomizer app will render here</h1>
+      <button className={props.classes.button} type='submit'>Pick me a Drink!</button>
     </div>
   )
 }
 
-export default Randomizer
+export default enhancer(Randomizer)

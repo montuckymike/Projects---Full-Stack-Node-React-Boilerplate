@@ -62,7 +62,7 @@ const Main = () => {
         render={() => <UserProfile />}
       />
       <Route
-        path='Randomizer'
+        path='/Randomizer'
         render={() => <Randomizer />}
       />
     </div>
