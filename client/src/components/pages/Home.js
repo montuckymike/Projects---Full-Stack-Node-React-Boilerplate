@@ -70,7 +70,7 @@ const Home = (props) => {
         <h1> Rest of Page Stuff </h1>
         <h1> Rest of Page Stuff </h1>
         <h1> Rest of Page Stuff </h1>
-        <h1> Change  Stuff </h1>
+        <h1> Changes  Stuff </h1>
         <h1> Another trivial change </h1>
         <h1> Trivial Change to Home  </h1>
         <h1> Test of Page Stuff </h1>
