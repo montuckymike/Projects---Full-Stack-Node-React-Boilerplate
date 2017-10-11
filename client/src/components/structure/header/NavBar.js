@@ -4,14 +4,15 @@ import injectSheet from 'react-jss'
 
 const styles = {
   navLinks: {
-    border: 'solid #2980b9',
+    border: 'solid black',
     display: 'flex',
     justifyContent: 'space-between',
     padding: 20
   },
   links: {
     textDecoration: 'none',
-    color: '#2980b9'
+    color: 'black',
+    fontFamily: 'Merriweather'
   }
 }
 const enhancer = injectSheet(styles)
