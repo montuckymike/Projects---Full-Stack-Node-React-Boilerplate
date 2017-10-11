@@ -1,6 +1,8 @@
 import React from 'react'
 import NavBar from './NavBar'
 import injectSheet from 'react-jss'
+import Avatar from 'material-ui/Avatar'
+import PropTypes from 'prop-types'
 
 const styles = {
   masterDiv: {
@@ -16,31 +18,30 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-end'
   },
-  gImg: {
-    border: 'solid #2980b9',
-    height: '2em',
-    width: '2em',
-    borderRadius: '25%',
-    margin: '2%'
+  avatar: {
+    margin: 10,
+    width: 50,
+    height: 50
   }
 }
+
 const enhancer = injectSheet(styles)
 
-const Header = (props) => {
+const Header = ({classes}) => {
   return (
-    <div className={props.classes.masterDiv}>
-      <div className={props.classes.navPanel}>
+    <div className={classes.masterDiv}>
+      <div className={classes.navPanel}>
         <NavBar />
       </div>
-      <div className={props.classes.gravatar}>
+      <div className={classes.gravatar}>
         <input type='text' placeholder='your name'></input>
-        <img className={props.classes.gImg} src='https://upload.wikimedia.org/wikipedia/commons/e/ea/Re_south_park_new_avatar.png' />
+        <Avatar className={classes.avatar}src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png' className={classes.avatar} />
       </div>
     </div>
   )
 }
-// Header.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// }
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
 
 export default enhancer(Header)

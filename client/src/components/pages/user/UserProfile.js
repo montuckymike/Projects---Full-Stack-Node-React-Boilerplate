@@ -9,8 +9,8 @@ const styles = {
   },
   avatar: {
     margin: 10,
-    width: 100,
-    height: 100
+    width: 50,
+    height: 50
   }
 }
 

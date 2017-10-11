@@ -1,5 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import PropTypes from 'prop-types'
 
 const styles = {
   footer: {
@@ -7,20 +8,20 @@ const styles = {
     bottom: 0,
     left: 0,
     right: 0,
-    height: 200,
-    background: {
-      image: 'url("http://i65.tinypic.com/4twy8p.jpg")'
-    },
     display: 'flex',
     alignItems: 'center',
-    paddingLeft: 20
+    paddingLeft: 20,
+    image: 'no-repeat'
   }
 }
 
 const enhancer = injectSheet(styles)
 
-const Footer = (props) =>
-  <div className={props.classes.footer}>
+const Footer = ({classes}) => (
+  <div className={classes.footer}>
   </div>
-
+)
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired
+}
 export default enhancer(Footer)
