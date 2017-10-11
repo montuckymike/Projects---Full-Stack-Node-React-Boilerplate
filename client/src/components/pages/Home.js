@@ -1,34 +1,33 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import NestedList from './nestedList'
 
 const styles = {
   mainDiv: {
     height: 800,
     display: 'flex',
     alignItems: 'center',
+    flexDirection: 'column',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundImage: 'url("https://burst.shopifycdn.com/photos/friends-drinking-coffee_925x.jpg")',
+    backgroundImage: 'url("https://burst.shopifycdn.com/photos/pouring-an-espresso_925x@2x.jpg")',
     clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
     position: 'relative',
     justifyContent: 'center'
   },
-  heroText: {
+  heroTitle: {
+    fontSize: '4em',
     color: 'white',
     fontFamily: 'Bookman',
-    textShadow: '1px 1px 2px black',
-    width: '100%',
-    border: 'solid red'
-  },
-  heroTitle: {
-    fontSize: 36
+    textShadow: '1px 1px 2px black'
   },
   heroButton: {
     width: '25%'
   },
   heroSubTitle: {
+    fontSize: '2em',
     color: 'white',
     fontFamily: 'Bookman',
     textShadow: '1px 1px 2px black'
@@ -116,11 +115,9 @@ const Home = (props) => {
   return (
     <div>
       <div className={props.classes.mainDiv}>
-        <div className={props.classes.heroText}>
-          <h1 className={props.classes.heroTitle}> Drink Randomizer 2000 </h1>
-          <h3 className={props.classes.heroSubTitle}>A Coffee App for Coffee People</h3>
-          <button className={props.classes.heroButton}> Randomize </button>
-        </div>
+        <h1 className={props.classes.heroTitle}> Drink Randomizer 2000 </h1>
+        <img src='https://i.pinimg.com/originals/22/ff/79/22ff79f1d2eadfd0deda241e128510b1.png' />
+        <h3 className={props.classes.heroSubTitle}>A Coffee App for Coffee People</h3>
       </div>
       <div className={props.classes.iconDiv}>
         <div className={props.classes.iconImg}>
@@ -166,15 +163,7 @@ const Home = (props) => {
             <img className={props.classes.futurePicImg} src='https://burst.shopifycdn.com/photos/pretty-woman-sipping-coffee_925x@2x.jpg' />
           </div>
           <div className={props.classes.futureContent2}>
-            <h1> Membership Benefits</h1>
-            <h2>Dial In A Drink</h2>
-            <h3> - Dairy vs Non-Dairy</h3>
-            <h3> - Super Sweet vs Not Sweet </h3>
-            <h3> - Data Point 3</h3>
-            <h2>Keep Track</h2>
-            <h3> - See Previous Drinks</h3>
-            <h3> - Rank Your Favorites </h3>
-            <h3> - Some Other Neat Thing</h3>
+            <NestedList />
           </div>
         </div>
         <div className={props.classes.cta}>
