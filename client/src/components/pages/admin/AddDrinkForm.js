@@ -9,10 +9,13 @@ import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 
 const styles = {
-  formBucket: {
+  main: {
+    border: 'dashed orange',
     display: 'flex',
-    justifyContent: 'flex-end',
-    marginRight: '23%'
+    justifyContent: 'space-evenly'
+  },
+  formBucket: {
+    border: 'solid green'
   },
   input: {
     display: 'flex',
@@ -26,6 +29,12 @@ const styles = {
   inputTag: {
     border: 'solid yellow',
     width: ''
+  },
+  photo: {
+    border: 'solid red',
+    display: 'flex',
+    width: '35%',
+    height: '25%'
   }
 }
 const enhancer = injectSheet(styles)
@@ -33,9 +42,15 @@ const enhancer = injectSheet(styles)
 const AddDrinkForm = ({classes}) => (
   <div className={classes.main}>
     <h1>Add Drink Form</h1>
-    <img src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg'/>
+    <img className={classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
     <div className={classes.formBucket}>
       <form className={classes.input}>
+        <Input
+          placeholder='Drink Name'
+          inputProps={{
+            'aria-label': 'Description'
+          }}
+        />
         <FormControl>
           <InputLabel className={classes.inputTag}>Number of Espresso Shots</InputLabel>
           <Select value=''>
@@ -49,16 +64,18 @@ const AddDrinkForm = ({classes}) => (
             <MenuItem value='7'>7</MenuItem>
           </Select>
         </FormControl>
+        <TextField label='Flavor #1' />
+        <TextField label='Flavor #2' />
+        <TextField label='Flavor #3' />
         <Input
-          placeholder='Drink Name'
+          placeholder='Add a Photo URL'
           inputProps={{
             'aria-label': 'Description'
           }}
         />
-        <TextField label='Name' />
         <Button raised>Submit</Button>
       </form>
-      </div>
+    </div>
   </div>
 )
 AddDrinkForm.propTypes = {
