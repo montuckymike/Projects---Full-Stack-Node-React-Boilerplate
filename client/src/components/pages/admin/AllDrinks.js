@@ -1,9 +1,12 @@
 import React from 'react'
 
-const AllDrinks = () => {
+const AllDrinks = ({drinkData}) => {
+  console.log(drinkData)
   return (
     <div>
-      AllDrinks
+      {
+        drinkData.isLoaded ? <h2>{drinkData.drinks[0].name}</h2> : null
+      }
     </div>
   )
 }

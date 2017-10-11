@@ -1,15 +1,15 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import Home from '../pages/Home'
-import AddDrinkContainer from '../pages/admin/AddDrinkContainer'
-import AllDrinks from '../pages/admin/AllDrinks'
-import EditDrink from '../pages/admin/EditDrink'
-import ListUsers from '../pages/admin/ListUsers'
-import CreateUser from '../pages/user/CreateUser'
-import Login from '../pages/user/Login'
-import TopTen from '../pages/user/TopTen'
-import UserProfile from '../pages/user/UserProfile'
-import Randomizer from '../pages/user/Randomizer'
+import Home from '../components/pages/Home'
+import AddDrinkContainer from '../components/pages/admin/AddDrinkContainer'
+import AllDrinks from '../components/pages/admin/AllDrinks'
+import EditDrink from '../components/pages/admin/EditDrink'
+import ListUsers from '../components/pages/admin/ListUsers'
+import CreateUser from '../components/pages/user/CreateUser'
+import Login from '../components/pages/user/Login'
+import TopTen from '../components/pages/user/TopTen'
+import UserProfile from '../components/pages/user/UserProfile'
+import Randomizer from '../components/pages/user/Randomizer'
 import injectSheet from 'react-jss'
 
 const styles = {
@@ -25,7 +25,7 @@ const styles = {
 
 const enhancer = injectSheet(styles)
 
-const Main = () => {
+const Main = ({drinkData}) => {
   return (
     <div>
       <Route path='/'exact component={Home} />
@@ -35,7 +35,7 @@ const Main = () => {
       />
       <Route
         path='/AllDrinks'
-        render={() => <AllDrinks />}
+        render={() => <AllDrinks drinkData={drinkData} />}
       />
       <Route
         path='/EditDrink'

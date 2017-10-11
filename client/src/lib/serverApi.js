@@ -28,3 +28,5 @@ const handleErrors = response => {
   }
   return response
 }
+
+export const getAllDrinks = () => ajaxRequest('drinks', 'GET')
