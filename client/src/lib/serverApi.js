@@ -45,3 +45,5 @@ export const updateUser = (user) => ajaxRequest({url: `/api/users/${user._id}`, 
 export const deleteUser = (userId) => ajaxRequest({url: `/api/users/${userId}`, method: 'DELETE'})
 
 export const findUserById = (userId) => ajaxRequest({url: `/api/users/${userId}`, method: 'GET'})
+
+export const loginUser = (email, password) => ajaxRequest({url: '/api/login', method: 'POST', body: {email, password}})

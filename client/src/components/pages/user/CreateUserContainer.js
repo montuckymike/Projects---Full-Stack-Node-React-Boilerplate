@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import CreateUser from './CreateUser'
+import {userData} from '../../../lib/propTypes'
 import {withRouter} from 'react-router-dom'
+
+const propTypes = {
+  userData
+}
 
 class CreateUserContainer extends Component {
   static propTypes = {
@@ -13,7 +18,9 @@ class CreateUserContainer extends Component {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    isSweet: false,
+    isDairy: false
   }
 
   onFirstNameChanged = (event) => this.setState({
@@ -31,6 +38,14 @@ class CreateUserContainer extends Component {
   onPasswordChanged = (event) => this.setState({
     password: event.target.value
   })
+
+  onDairyChanged = () => {
+    this.setState({isDairy: !this.state.isDairy})
+  }
+
+  onSweetnessChanged = () => {
+    this.setState({isSweet: !this.state.isSweet})
+  }
 
   onSubmit = (event) => {
     event.preventDefault()
@@ -51,10 +66,15 @@ class CreateUserContainer extends Component {
         onEmailChanged={this.onEmailChanged}
         password={this.state.password}
         onPasswordChanged={this.onPasswordChanged}
+        isDairy={this.state.isDairy}
+        onDairyChanged={this.onDairyChanged}
+        isSweet={this.state.isSweet}
+        onSweetnessChanged={this.onSweetnessChanged}
         onSubmit={this.onSubmit}
       />
     )
   }
 }
+CreateUserContainer.propTypes = propTypes
 
 export default withRouter(CreateUserContainer)

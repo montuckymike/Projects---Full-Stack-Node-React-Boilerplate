@@ -18,8 +18,7 @@ const styles = {
 const enhancer = injectSheet(styles)
 
 const Footer = ({classes}) => (
-  <div className={classes.footer}>
-  </div>
+  <div className={classes.footer}></div>
 )
 Footer.propTypes = {
   classes: PropTypes.object.isRequired

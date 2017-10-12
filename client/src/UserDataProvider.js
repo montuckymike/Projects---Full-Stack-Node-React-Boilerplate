@@ -37,7 +37,16 @@ class UserDataProvider extends Component {
 
     findUserById: (userId) =>
       ServerApi.findUserById(userId)
-        .then(this.methods.getAllUsers)
+        .then(this.methods.getAllUsers),
+
+    loginUser: (email, password) =>
+      ServerApi.loginUser(email, password)
+        .then((loggedInUser) => {
+          this.setState({
+            user: loggedInUser
+          })
+          return loggedInUser
+        })
   }
 
   componentDidMount () {

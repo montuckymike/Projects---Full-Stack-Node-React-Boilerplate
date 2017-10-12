@@ -6,11 +6,17 @@ import AllDrinks from '../components/pages/admin/AllDrinks'
 import EditDrink from '../components/pages/admin/EditDrink'
 import ListUsers from '../components/pages/admin/ListUsers'
 import CreateUserContainer from '../components/pages/user/CreateUserContainer'
-import Login from '../components/pages/user/Login'
+import LoginContainer from '../components/pages/authorization/LoginContainer'
 import TopTen from '../components/pages/user/TopTen'
 import UserProfile from '../components/pages/user/UserProfile'
 import Randomizer from '../components/pages/user/Randomizer'
 import injectSheet from 'react-jss'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  drinkData: PropTypes.object.isRequired,
+  userData: PropTypes.object.isRequired
+}
 
 const styles = {
   main: {
@@ -29,44 +35,19 @@ const Main = ({drinkData, userData}) => {
   return (
     <div>
       <Route path='/'exact component={Home} />
-      <Route
-        path='/AddDrink'
-        render={() => <AddDrinkContainer />}
-      />
-      <Route
-        path='/AllDrinks'
-        render={() => <AllDrinks drinkData={drinkData} />}
-      />
-      <Route
-        path='/EditDrink'
-        render={() => <EditDrink />}
-      />
-      <Route
-        path='/ListUsers'
-        render={() => <ListUsers />}
-      />
-      <Route
-        path='/CreateUser'
-        render={() => <CreateUserContainer userData={userData} />}
-      />
-      <Route
-        path='/Login'
-        render={() => <Login />}
-      />
-      <Route
-        path='/TopTen'
-        render={() => <TopTen />}
-      />
-      <Route
-        path='/UserProfile'
-        render={() => <UserProfile />}
-      />
-      <Route
-        path='/Randomizer'
-        render={() => <Randomizer />}
-      />
+      <Route path='/AddDrink' render={() => <AddDrinkContainer />} />
+      <Route path='/AllDrinks' render={() => <AllDrinks drinkData={drinkData} />} />
+      <Route path='/EditDrink' render={() => <EditDrink />} />
+      <Route path='/ListUsers' render={() => <ListUsers />} />
+      <Route path='/CreateUser' render={() => <CreateUserContainer userData={userData} />} />
+      <Route path='/Login' render={() => <LoginContainer userData={userData} />} />
+      <Route path='/TopTen' render={() => <TopTen />} />
+      <Route path='/UserProfile' render={() => <UserProfile />} />
+      <Route path='/Randomizer' render={() => <Randomizer />} />
     </div>
   )
 }
+
+Main.propTypes = propTypes
 
 export default enhancer(Main)

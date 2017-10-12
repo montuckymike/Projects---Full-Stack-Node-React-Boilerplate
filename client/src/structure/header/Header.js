@@ -22,6 +22,11 @@ const styles = {
     margin: 10,
     width: 50,
     height: 50
+  },
+  input: {
+    marginTop: 10,
+    width: '55%',
+    height: 40
   }
 }
 
@@ -34,7 +39,7 @@ const Header = ({classes}) => {
         <NavBar />
       </div>
       <div className={classes.gravatar}>
-        <input type='text' placeholder='your name'></input>
+        <input className={classes.input} type='text' placeholder='your name'></input>
         <Avatar className={classes.avatar}src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png' className={classes.avatar} />
       </div>
     </div>
