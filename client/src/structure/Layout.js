@@ -3,11 +3,11 @@ import Footer from './Footer'
 import Header from './header/Header'
 import Main from './Main'
 
-const Layout = ({drinkData}) => {
+const Layout = ({drinkData, userData}) => {
   return (
     <div>
       <Header />
-      <Main drinkData={drinkData} />
+      <Main drinkData={drinkData} userData={userData} />
       <Footer />
     </div>
   )

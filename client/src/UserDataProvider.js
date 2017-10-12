@@ -5,7 +5,7 @@ import * as ServerApi from './lib/serverApi'
 class UserDataProvider extends Component {
   state = {
     isLoaded: false,
-    users: null
+    user: null
   }
 
   methods = {
@@ -17,15 +17,16 @@ class UserDataProvider extends Component {
             users: users
           })),
 
-    addUser: (newUser) =>
+    addUser: (newUser) => {
       ServerApi.addUser(newUser)
         .then((signUpUser) => {
+          console.log('response to add user call', signUpUser)
           this.setState({
             user: signUpUser
           })
           return signUpUser
-        }),
-
+        })
+    },
     updateUser: (user) =>
       ServerApi.updateUser(user)
         .then(this.methods.getAllUsers),
@@ -48,7 +49,7 @@ class UserDataProvider extends Component {
       ...this.state,
       ...this.methods
     }
-    return this.state.isLoaded ? <Layout userData={userData} /> : null
+    return React.cloneElement(this.props.children,{userData})
   }
 }
 export default UserDataProvider

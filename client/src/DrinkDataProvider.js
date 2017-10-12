@@ -11,11 +11,13 @@ class DrinkDataProvider extends Component {
   methods = {
     getAllDrinks: () =>
       ServerApi.getAllDrinks()
-        .then(drinks =>
+        .then(drinks => {
+          console.log(drinks, 'where are all the drinks!')
           this.setState({
             isLoaded: true,
             drinks: drinks
-          })),
+          })
+        }),
 
     addDrink: (newDrink) =>
       ServerApi.addDrink(newDrink)
@@ -31,7 +33,7 @@ class DrinkDataProvider extends Component {
       ...this.state,
       ...this.methods
     }
-    return this.state.isLoaded ? <Layout drinkData={drinkData} /> : null
+    return React.cloneElement(this.props.children,{drinkData, userData: this.props.userData})
   }
 }
 export default DrinkDataProvider
