@@ -1,9 +1,7 @@
 import React from 'react'
-import TextField from 'material-ui/TextField'
 import Input, {InputLabel} from 'material-ui/Input'
-import MenuItem from 'material-ui/Menu/MenuItem'
-import Select from 'material-ui/Select'
-import {FormControl} from 'material-ui/Form'
+import { FormControlLabel, FormGroup } from 'material-ui/Form'
+import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
@@ -51,22 +49,12 @@ const AddDrinkForm = ({classes}) => (
             'aria-label': 'Description'
           }}
         />
-        <FormControl>
-          <InputLabel className={classes.inputTag}>Number of Espresso Shots</InputLabel>
-          <Select value=''>
-            <MenuItem value=''>Select One</MenuItem>
-            <MenuItem value='1'>1</MenuItem>
-            <MenuItem value='2'>2</MenuItem>
-            <MenuItem value='3'>3</MenuItem>
-            <MenuItem value='4'>4</MenuItem>
-            <MenuItem value='5'>5</MenuItem>
-            <MenuItem value='6'>6</MenuItem>
-            <MenuItem value='7'>7</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField label='Flavor #1' />
-        <TextField label='Flavor #2' />
-        <TextField label='Flavor #3' />
+        <Input
+          placeholder='Drink Name'
+          inputProps={{
+            'aria-label': 'Description'
+          }}
+        />
         <Input
           placeholder='Add a Photo URL'
           inputProps={{

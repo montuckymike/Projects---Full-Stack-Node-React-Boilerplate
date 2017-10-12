@@ -15,7 +15,11 @@ class DrinkDataProvider extends Component {
           this.setState({
             isLoaded: true,
             drinks: drinks
-          }))
+          })),
+
+    addDrink: (newDrink) =>
+      ServerApi.addDrink(newDrink)
+        .then(this.methods.getAllDrinks)
   }
 
   componentDidMount () {
