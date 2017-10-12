@@ -19,7 +19,7 @@ class DrinkDataProvider extends Component {
 
     addDrink: (newDrink) =>
       ServerApi.addDrink(newDrink)
-        .then(this.methods.getAllDrinks)
+        .then((res) => console.log('serverApi', res))
   }
 
   componentDidMount () {
