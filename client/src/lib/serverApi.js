@@ -30,3 +30,13 @@ const handleErrors = response => {
 }
 
 export const getAllDrinks = () => ajaxRequest('drinks', 'GET')
+
+export const getAllUsers = () => ajaxRequest('users', 'GET')
+
+export const addUser = (newUser) => ajaxRequest('users', 'POST', newUser)
+
+export const updateUser = (user) => ajaxRequest(`users/${user._id}`, 'PUT', user)
+
+export const deleteUser = (userId) => ajaxRequest(`users/${userId}`, 'DELETE')
+
+export const findUserById = (userId) => ajaxRequest(`users/${userId}`, userId)

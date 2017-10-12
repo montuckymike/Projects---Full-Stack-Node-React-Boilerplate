@@ -8,6 +8,19 @@ import Select from 'material-ui/Select'
 import {FormControl} from 'material-ui/Form'
 import injectSheet from 'react-jss'
 
+const propTypes = {
+  classes: PropTypes.object.isRequired,
+  firstName: PropTypes.string.isRequired,
+  onFirstNameChanged: PropTypes.func.isRequired,
+  lastName: PropTypes.string.isRequired,
+  onLastNameChanged: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  onEmailChanged: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  onPasswordChanged: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
+
 const styles = {
   container: {
     display: 'flex',
@@ -95,9 +108,7 @@ const CreateUser = props => {
               <MenuItem value='Non-Diary'>Non Diary</MenuItem>
             </Select>
           </FormControl>
-          <Button onSubmit={props.onSubmit}
-            className={classes.button}
-            raised>Submit
+          <Button onClick={event => props.onSubmit(event)}>Submit
           </Button>
         </form>
       </div>
@@ -105,17 +116,6 @@ const CreateUser = props => {
   )
 }
 
-CreateUser.propTypes = {
-  classes: PropTypes.object.isRequired,
-  firstName: PropTypes.string.isRequired,
-  onFirstNameChanged: PropTypes.func.isRequired,
-  lastName: PropTypes.string.isRequired,
-  onLastNameChanged: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  onEmailChanged: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
-  onPasswordChanged: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
-}
+CreateUser.propTypes = propTypes
 
 export default enhancer(CreateUser)

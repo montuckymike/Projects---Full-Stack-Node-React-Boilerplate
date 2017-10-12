@@ -5,7 +5,7 @@ import AddDrinkContainer from '../components/pages/admin/AddDrinkContainer'
 import AllDrinks from '../components/pages/admin/AllDrinks'
 import EditDrink from '../components/pages/admin/EditDrink'
 import ListUsers from '../components/pages/admin/ListUsers'
-import CreateUser from '../components/pages/user/CreateUser'
+import CreateUserContainer from '../components/pages/user/CreateUserContainer'
 import Login from '../components/pages/user/Login'
 import TopTen from '../components/pages/user/TopTen'
 import UserProfile from '../components/pages/user/UserProfile'
@@ -47,7 +47,7 @@ const Main = ({drinkData}) => {
       />
       <Route
         path='/CreateUser'
-        render={() => <CreateUser />}
+        render={() => <CreateUserContainer />}
       />
       <Route
         path='/Login'

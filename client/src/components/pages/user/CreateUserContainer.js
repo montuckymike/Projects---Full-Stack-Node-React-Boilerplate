@@ -5,8 +5,8 @@ import {withRouter} from 'react-router-dom'
 
 class CreateUserContainer extends Component {
   static propTypes = {
-    CreateUser: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    UserDataProvider: PropTypes.object.isRequired
   }
 
   state = {
@@ -35,7 +35,7 @@ class CreateUserContainer extends Component {
   onSubmit = (event) => {
     event.preventDefault()
     console.log('On Submit triggered')
-    this.props.CreateUser(this.state)
+    this.props.UserDataProvider.addUser(this.state)
       .then(() => this.props.history.push('/'))
       .then(() => alert(`Congrats, you are all signed up ${this.state.firstName}`))
   }
