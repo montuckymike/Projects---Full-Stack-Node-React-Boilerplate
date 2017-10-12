@@ -12,7 +12,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundImage: 'url("https://burst.shopifycdn.com/photos/pouring-an-espresso_925x@2x.jpg")',
+    backgroundImage: 'url("https://burst.shopifycdn.com/photos/hot-coffee-cinemagraph.gif")',
     clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
     position: 'relative',
     justifyContent: 'center'
