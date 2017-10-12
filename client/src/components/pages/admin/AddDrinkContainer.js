@@ -10,10 +10,10 @@ const propTypes = {
 
 class AddDrinkContainer extends Component {
   state = {
-    name: '',
-    isSweet: '',
-    isDairy: '',
-    image: ''
+    name: undefined,
+    isSweet: undefined,
+    isDairy: undefined,
+    image: undefined
   }
 
   onNameChanged = (event) => this.setState({
