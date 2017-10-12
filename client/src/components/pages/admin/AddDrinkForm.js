@@ -1,15 +1,13 @@
 import React from 'react'
-import TextField from 'material-ui/TextField'
 import Input, {InputLabel} from 'material-ui/Input'
-import MenuItem from 'material-ui/Menu/MenuItem'
-import Select from 'material-ui/Select'
-import {FormControl} from 'material-ui/Form'
+import { FormControlLabel} from 'material-ui/Form'
+import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 
 const styles = {
-  main: {
+  formAndPhotoBucket: {
     border: 'dashed orange',
     display: 'flex',
     justifyContent: 'space-evenly'
@@ -39,42 +37,58 @@ const styles = {
 }
 const enhancer = injectSheet(styles)
 
-const AddDrinkForm = ({classes}) => (
-  <div className={classes.main}>
+const propTypes = {
+  onNameChanged: PropTypes.func.isRequired,
+  onDairyChanged: PropTypes.func.isRequired,
+  isDairy: PropTypes.bool.isRequired,
+  onImageChanged: PropTypes.func.isRequired,
+  onSweetnessChanged: PropTypes.func.isRequired,
+  isSweet: PropTypes.bool.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
+
+const AddDrinkForm = (props) => (
+  <div>
     <h1>Add Drink Form</h1>
-    <img className={classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
-    <div className={classes.formBucket}>
-      <form className={classes.input}>
-        <Input
-          placeholder='Drink Name'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
-        <FormControl>
-          <InputLabel className={classes.inputTag}>Number of Espresso Shots</InputLabel>
-          <Select value=''>
-            <MenuItem value=''>Select One</MenuItem>
-            <MenuItem value='1'>1</MenuItem>
-            <MenuItem value='2'>2</MenuItem>
-            <MenuItem value='3'>3</MenuItem>
-            <MenuItem value='4'>4</MenuItem>
-            <MenuItem value='5'>5</MenuItem>
-            <MenuItem value='6'>6</MenuItem>
-            <MenuItem value='7'>7</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField label='Flavor #1' />
-        <TextField label='Flavor #2' />
-        <TextField label='Flavor #3' />
-        <Input
-          placeholder='Add a Photo URL'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
-        <Button raised>Submit</Button>
-      </form>
+    <div className={props.classes.formAndPhotoBucket} >
+      <img className={props.classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
+      <div className={props.classes.formBucket}>
+        <form className={props.classes.input}>
+          <Input
+            placeholder='Drink Name'
+            onChange={props.onNameChanged}
+            inputProps={{
+              'aria-label': 'Description'
+            }}
+          />
+          <Input
+            placeholder='Add a Photo URL'
+            onChange={props.onImageChanged}
+            inputProps={{
+              'aria-label': 'Description'
+            }}
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                onClick={() => props.onDairyChanged()}
+                checked={props.isDairy}
+              />
+            }
+            label='Dairy'
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                onClick={() => props.onSweetnessChanged()}
+                checked={props.isSweet}
+              />
+            }
+            label='Sweet'
+          />
+          <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+        </form>
+      </div>
     </div>
   </div>
 )

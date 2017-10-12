@@ -25,7 +25,7 @@ const styles = {
 
 const enhancer = injectSheet(styles)
 
-const Main = ({drinkData}) => {
+const Main = ({drinkData, userData}) => {
   return (
     <div>
       <Route path='/'exact component={Home} />
@@ -47,7 +47,7 @@ const Main = ({drinkData}) => {
       />
       <Route
         path='/CreateUser'
-        render={() => <CreateUserContainer />}
+        render={() => <CreateUserContainer userData={userData} />}
       />
       <Route
         path='/Login'

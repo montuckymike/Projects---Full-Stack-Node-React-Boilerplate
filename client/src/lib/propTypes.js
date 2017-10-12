@@ -7,6 +7,20 @@ export const user = PropTypes.shape({
   password: PropTypes.string.isRequired
 }).isRequired
 
-export const domainData = PropTypes.shape({
-  
+export const userData = PropTypes.shape({
+  isLoaded: PropTypes.bool.isRequired,
+  addUser: PropTypes.func.isRequired
+})
+
+export const drink = PropTypes.shape({
+  _id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  isDairy: PropTypes.bool.isRequired,
+  isSweet: PropTypes.bool.isRequired
+})
+
+export const drinkData = PropTypes.shape({
+  isLoaded: PropTypes.bool.isRequired,
+  addDrink: PropTypes.func.isRequired
 }).isRequired

@@ -28,8 +28,9 @@ const handleErrors = response => {
   }
   return response
 }
-
 export const getAllDrinks = () => ajaxRequest('drinks', 'GET')
+
+export const addDrink = (drink) => ajaxRequest('drinks', 'POST', drink)
 
 export const getAllUsers = () => ajaxRequest('users', 'GET')
 

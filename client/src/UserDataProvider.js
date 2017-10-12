@@ -19,7 +19,12 @@ class UserDataProvider extends Component {
 
     addUser: (newUser) =>
       ServerApi.addUser(newUser)
-        .then(this.methods.getAllUsers),
+        .then((signUpUser) => {
+          this.setState({
+            user: signUpUser
+          })
+          return signUpUser
+        }),
 
     updateUser: (user) =>
       ServerApi.updateUser(user)
