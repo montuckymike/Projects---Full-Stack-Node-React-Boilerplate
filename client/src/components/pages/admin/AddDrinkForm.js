@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 
 const styles = {
-  main: {
+  formAndPhotoBucket: {
     border: 'dashed orange',
     display: 'flex',
     justifyContent: 'space-evenly'
@@ -37,32 +37,37 @@ const styles = {
 }
 const enhancer = injectSheet(styles)
 
-const AddDrinkForm = ({classes}) => (
-  <div className={classes.main}>
+const propTypes = {
+  onNameChanged: PropTypes.func.isRequired,
+  onDairyChanged: PropTypes.func.isRequired,
+  onImageChanged: PropTypes.func.isRequired,
+  onSweetnessChanged: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
+
+const AddDrinkForm = (props) => (
+  <div>
     <h1>Add Drink Form</h1>
-    <img className={classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
-    <div className={classes.formBucket}>
-      <form className={classes.input}>
-        <Input
-          placeholder='Drink Name'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
-        <Input
-          placeholder='Drink Name'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
-        <Input
-          placeholder='Add a Photo URL'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
-        <Button raised>Submit</Button>
-      </form>
+    <div className={props.classes.formAndPhotoBucket} >
+      <img className={props.classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
+      <div className={props.classes.formBucket}>
+        <form className={props.classes.input}>
+          <Input
+            placeholder='Drink Name'
+            onChange={props.onNameChanged}
+            inputProps={{
+              'aria-label': 'Description'
+            }}
+          />
+          <Input
+            placeholder='Add a Photo URL'
+            inputProps={{
+              'aria-label': 'Description'
+            }}
+          />
+          <Button raised>Submit</Button>
+        </form>
+      </div>
     </div>
   </div>
 )
