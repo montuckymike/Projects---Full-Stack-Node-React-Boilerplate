@@ -20,7 +20,8 @@ class CreateUserContainer extends Component {
     email: '',
     password: '',
     isSweet: false,
-    isDairy: false
+    isDairy: false,
+    imgae: undefined
   }
 
   onFirstNameChanged = (event) => this.setState({
@@ -47,6 +48,10 @@ class CreateUserContainer extends Component {
     this.setState({isSweet: !this.state.isSweet})
   }
 
+  onImageChanged = (event) => this.setState({
+    image: event.target.value
+  })
+
   onSubmit = (event) => {
     event.preventDefault()
     console.log('On Submit triggered')
@@ -70,6 +75,7 @@ class CreateUserContainer extends Component {
         onDairyChanged={this.onDairyChanged}
         isSweet={this.state.isSweet}
         onSweetnessChanged={this.onSweetnessChanged}
+        onImageChanged={this.onImageChanged}
         onSubmit={this.onSubmit}
       />
     )

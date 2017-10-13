@@ -7,8 +7,8 @@ import EditDrink from '../components/pages/admin/EditDrink'
 import ListUsers from '../components/pages/admin/ListUsers'
 import CreateUserContainer from '../components/pages/user/CreateUserContainer'
 import LoginContainer from '../components/pages/authorization/LoginContainer'
+import ProfileContainer from '../components/pages/user/profile/ProfileContainer'
 import TopTen from '../components/pages/user/TopTen'
-import UserProfile from '../components/pages/user/UserProfile'
 import Randomizer from '../components/pages/user/Randomizer'
 import injectSheet from 'react-jss'
 import PropTypes from 'prop-types'
@@ -42,7 +42,7 @@ const Main = ({drinkData, userData}) => {
       <Route path='/CreateUser' render={() => <CreateUserContainer userData={userData} />} />
       <Route path='/Login' render={() => <LoginContainer userData={userData} />} />
       <Route path='/TopTen' render={() => <TopTen />} />
-      <Route path='/UserProfile' render={() => <UserProfile />} />
+      <Route path='/Profile' render={(routeProps) => <ProfileContainer userData={userData} history={routeProps.history} />} />
       <Route path='/Randomizer' render={() => <Randomizer />} />
     </div>
   )

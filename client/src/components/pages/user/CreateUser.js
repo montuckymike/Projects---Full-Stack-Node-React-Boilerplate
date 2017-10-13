@@ -20,6 +20,7 @@ const propTypes = {
   onDairyChanged: PropTypes.func.isRequired,
   isSweet: PropTypes.bool.isRequired,
   onSweetnessChanged: PropTypes.func.isRequired,
+  onImageChanged: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
@@ -98,6 +99,11 @@ const CreateUser = props => {
             className={classes.textField}
             value={props.password}
             onChange={props.onPasswordChanged}
+          />
+          <TextField
+            placeholder='Add a profile picture'
+            className={classes.textField}
+            onChange={props.onImageChanged}
           />
           <FormControlLabel
             control={

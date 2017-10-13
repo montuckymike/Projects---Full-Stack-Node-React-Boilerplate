@@ -1,6 +1,11 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import injectSheet from 'react-jss'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  classes: PropTypes.object.isRequired
+}
 
 const styles = {
   navLinks: {
@@ -17,22 +22,22 @@ const styles = {
 }
 const enhancer = injectSheet(styles)
 
-const NavBar = (props) => {
+const NavBar = ({ classes }) => {
   return (
-    <div className={props.classes.navLinks}>
-      <NavLink className={props.classes.links} to='/'>Home</NavLink>
-      <NavLink className={props.classes.links} to='/Randomizer'>Randomizer</NavLink>
-      <NavLink className={props.classes.links} to='/AddDrink'>AddDrink</NavLink>
-      <NavLink className={props.classes.links} to='/AllDrinks'>AllDrinks</NavLink>
-      <NavLink className={props.classes.links} to='/EditDrink'>EditDrink</NavLink>
-      <NavLink className={props.classes.links} to='/ListUsers'>ListUsers</NavLink>
-      <NavLink className={props.classes.links} to='/CreateUser'>CreateUser</NavLink>
-      <NavLink className={props.classes.links} to='/Login'>Login</NavLink>
-      <NavLink className={props.classes.links} to='/TopTen'>TopTen</NavLink>
-      <NavLink className={props.classes.links} to='/UserProfile'>UserProfile</NavLink>
-
+    <div className={classes.navLinks}>
+      <NavLink className={classes.links} to='/'>Home</NavLink>
+      <NavLink className={classes.links} to='/Randomizer'>Randomizer</NavLink>
+      <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
+      <NavLink className={classes.links} to='/AllDrinks'>All Drinks</NavLink>
+      <NavLink className={classes.links} to='/EditDrink'>Edit Drink</NavLink>
+      <NavLink className={classes.links} to='/CreateUser'>Create User</NavLink>
+      <NavLink className={classes.links} to='/Login'>Login</NavLink>
+      <NavLink className={classes.links} to='/Profile'>Profile</NavLink>
+      <NavLink className={classes.links} to='/TopTen'>Top Ten</NavLink>
     </div>
   )
 }
+
+NavBar.propTypes = propTypes
 
 export default enhancer(NavBar)
