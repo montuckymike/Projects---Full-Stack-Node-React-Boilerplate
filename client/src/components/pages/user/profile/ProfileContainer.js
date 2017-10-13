@@ -5,7 +5,6 @@ import {withRouter} from 'react-router-dom'
 
 class ProfileContainer extends Component {
   static propTypes = {
-    history: PropTypes.object.isRequired,
     userData: PropTypes.func.isRequired
   }
 

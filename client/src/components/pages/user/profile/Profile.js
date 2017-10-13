@@ -13,9 +13,15 @@ const propTypes = {
 }
 
 const styles = {
+  mainDiv: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
   card: {
     maxWidth: 345,
-    margin: 20
+    height: 415,
+    marginTop: 100,
+    marginLeft: 10
   },
   media: {
     height: 200,
@@ -23,27 +29,36 @@ const styles = {
     margin: 10
   },
   randomButton: {
-    dense: 'primary',
-    textDecoration: 'none'
+    dense: 'primary'
   },
   cardActions: {
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  header: {
+    fontFamily: 'Merriweather'
+  },
+  typography: {
+    height: 600
   }
 }
 
 const Profile = props => {
   const { classes } = props
   return (
-    <div>
+    <div className={classes.mainDiv} >
+      <div>
+        <img className={classes.typography} src='https://i.pinimg.com/736x/90/8a/11/908a11e4a4ef0da9a0dd64fa31a54fb6--coffee-typography-under-eye-concealer.jpg' />
+      </div>
       <Card className={classes.card}>
         <div>
           <img className={classes.media} src='https://burst.shopifycdn.com/photos/making-coffee_925x.jpg' />
         </div>
         <CardContent>
-          <div>First Name: {props.firstName}</div>
-          <div>Last Name: {props.lastName}</div>
-          <div>Email: {props.email}</div>
+          <div className={classes.header}> First Name: {props.firstName}</div>
+          <div className={classes.header}> Last Name: {props.lastName}</div>
+          <div className={classes.header}> Email: {props.email}</div>
+          <div className={classes.header}> Favorite Coffee:</div>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button dense color='primary'>

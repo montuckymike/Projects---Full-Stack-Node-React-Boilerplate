@@ -100,11 +100,6 @@ const CreateUser = props => {
             value={props.password}
             onChange={props.onPasswordChanged}
           />
-          <TextField
-            placeholder='Add a profile picture'
-            className={classes.textField}
-            onChange={props.onImageChanged}
-          />
           <FormControlLabel
             control={
               <Switch

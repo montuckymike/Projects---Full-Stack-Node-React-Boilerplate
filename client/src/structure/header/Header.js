@@ -11,7 +11,8 @@ const styles = {
     alignItems: 'center'
   },
   navPanel: {
-    width: '75%'
+    width: '100vw',
+    marginLeft: 10
   },
   gravatar: {
     width: '25%',
@@ -39,14 +40,13 @@ const Header = ({classes}) => {
         <NavBar />
       </div>
       <div className={classes.gravatar}>
-        <input className={classes.input} type='text' placeholder='your name'></input>
-        <Avatar className={classes.avatar}src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png' className={classes.avatar} />
+        <Avatar className={classes.avatar}src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
       </div>
     </div>
   )
 }
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 }
 
 export default enhancer(Header)
