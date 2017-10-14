@@ -21,7 +21,9 @@ class CreateUserContainer extends Component {
     password: '',
     isSweet: false,
     isDairy: false,
-    imgae: undefined
+    image: undefined,
+    favCoffee: undefined,
+    favoriteCoffeeShop: undefined
   }
 
   onFirstNameChanged = (event) => this.setState({
@@ -48,8 +50,12 @@ class CreateUserContainer extends Component {
     this.setState({isSweet: !this.state.isSweet})
   }
 
-  onImageChanged = (event) => this.setState({
-    image: event.target.value
+  onFavCoffee = (event) => this.setState({
+    favCoffee: event.target.value
+  })
+
+  onFavoriteCoffeeShop = (event) => this.setState({
+    favoriteCoffeeShop: event.target.value
   })
 
   onSubmit = (event) => {
@@ -63,19 +69,15 @@ class CreateUserContainer extends Component {
   render () {
     return (
       <CreateUser
-        firstName={this.state.firstName}
+        {...this.state}
         onFirstNameChanged={this.onFirstNameChanged}
-        lastName={this.state.lastName}
         onLastNameChanged={this.onLastNameChanged}
-        email={this.state.email}
         onEmailChanged={this.onEmailChanged}
-        password={this.state.password}
         onPasswordChanged={this.onPasswordChanged}
-        isDairy={this.state.isDairy}
         onDairyChanged={this.onDairyChanged}
-        isSweet={this.state.isSweet}
         onSweetnessChanged={this.onSweetnessChanged}
-        onImageChanged={this.onImageChanged}
+        onFavCoffee={this.onFavCoffee}
+        onFavoriteCoffeeShop={this.onFavoriteCoffeeShop}
         onSubmit={this.onSubmit}
       />
     )

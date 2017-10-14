@@ -35,10 +35,14 @@ class UserDataProvider extends Component {
       ServerApi.deleteUser(userId)
         .then(this.methods.getAllUsers),
 
-    findUserById: (userId) =>
-      ServerApi.findUserById(userId)
-        .then(this.methods.getAllUsers),
-
+    findUserById: (profileId) => {
+      for (let i = 0; i < this.state.profile.length; i++) {
+        const currentProfile = this.state.profile[i]
+        if (profileId === currentProfile._id) {
+          return currentProfile
+        }
+      }
+    },
     loginUser: (email, password) =>
       ServerApi.loginUser(email, password)
         .then((loggedInUser) => {

@@ -20,7 +20,10 @@ const propTypes = {
   onDairyChanged: PropTypes.func.isRequired,
   isSweet: PropTypes.bool.isRequired,
   onSweetnessChanged: PropTypes.func.isRequired,
-  onImageChanged: PropTypes.func.isRequired,
+  favCoffee: PropTypes.string.isRequired,
+  onFavCoffee: PropTypes.func.isRequired,
+  favoriteCoffeeShop: PropTypes.string.isRequired,
+  onFavoriteCoffeeShop: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
@@ -99,6 +102,20 @@ const CreateUser = props => {
             className={classes.textField}
             value={props.password}
             onChange={props.onPasswordChanged}
+          />
+          <TextField
+            id='favoriteCoffee'
+            label='Favorite Coffee'
+            className={classes.textField}
+            value={props.favCoffee}
+            onChange={props.onFavCoffee}
+          />
+          <TextField
+            id='favoriteCoffeeShop'
+            label='Favorite Coffee Shop'
+            className={classes.textField}
+            value={props.favoriteCoffeeShop}
+            onChange={props.onFavoriteCoffeeShop}
           />
           <FormControlLabel
             control={

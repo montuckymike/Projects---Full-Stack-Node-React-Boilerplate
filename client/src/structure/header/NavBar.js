@@ -30,7 +30,7 @@ const NavBar = ({ classes }) => {
       <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
       <NavLink className={classes.links} to='/AllDrinks'>All Drinks</NavLink>
       <NavLink className={classes.links} to='/EditDrink'>Edit Drink</NavLink>
-      <NavLink className={classes.links} to='/CreateUser'>Create User</NavLink>
+      <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
       <NavLink className={classes.links} to='/Login'>Login</NavLink>
       <NavLink className={classes.links} to='/Profile'>Profile</NavLink>
       <NavLink className={classes.links} to='/TopTen'>Top Ten</NavLink>

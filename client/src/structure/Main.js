@@ -8,6 +8,7 @@ import ListUsers from '../components/pages/admin/ListUsers'
 import CreateUserContainer from '../components/pages/user/CreateUserContainer'
 import LoginContainer from '../components/pages/authorization/LoginContainer'
 import ProfileContainer from '../components/pages/user/profile/ProfileContainer'
+import EditProfileContainer from '../components/pages/user/profile/EditProfileContainer'
 import TopTen from '../components/pages/user/TopTen'
 import Randomizer from '../components/pages/user/Randomizer'
 import injectSheet from 'react-jss'
@@ -44,6 +45,7 @@ const Main = ({drinkData, userData}) => {
       <Route path='/TopTen' render={() => <TopTen />} />
       <Route path='/Profile' render={(routeProps) => <ProfileContainer userData={userData} history={routeProps.history} />} />
       <Route path='/Randomizer' render={() => <Randomizer />} />
+      <Route path='/EditProfile' render={() => <EditProfileContainer />} />
     </div>
   )
 }

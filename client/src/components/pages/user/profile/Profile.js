@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Route, Link} from 'react-router-dom'
 import { withStyles } from 'material-ui/styles'
-import {Link} from 'react-router-dom'
 import Card, { CardActions, CardContent } from 'material-ui/Card'
 import Button from 'material-ui/Button'
 
@@ -9,7 +9,9 @@ const propTypes = {
   classes: PropTypes.object.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired,
+  favoriteCoffee: PropTypes.string.isRequired,
+  favoriteCoffeeShop: PropTypes.string.isRequired
 }
 
 const styles = {
@@ -18,14 +20,14 @@ const styles = {
     flexDirection: 'row'
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 355,
     height: 415,
     marginTop: 100,
     marginLeft: 10
   },
   media: {
     height: 200,
-    width: 325,
+    width: 335,
     margin: 10
   },
   randomButton: {
@@ -58,7 +60,8 @@ const Profile = props => {
           <div className={classes.header}> First Name: {props.firstName}</div>
           <div className={classes.header}> Last Name: {props.lastName}</div>
           <div className={classes.header}> Email: {props.email}</div>
-          <div className={classes.header}> Favorite Coffee:</div>
+          <div className={classes.header}> Favorite Coffee: {props.favoriteCoffee}</div>
+          <div className={classes.header}> Favorite Coffee Shop: {props.favoriteCoffeeShop}</div>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button dense color='primary'>
@@ -68,7 +71,7 @@ const Profile = props => {
             <Link to='/TopTen'>Top Ten</Link>
           </Button>
           <Button dense color='primary'>
-            <Link to='/'>Home</Link>
+            <Link to='/EditProfile'>Edit Profile</Link>
           </Button>
         </CardActions>
       </Card>
