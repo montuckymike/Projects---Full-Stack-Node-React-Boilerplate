@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import * as AppPropTypes from '../../../../lib/propTypes'
 import EditProfileForm from './EditProfileForm'
 import {withRouter} from 'react-router-dom'
 
-const propTypes = {
-  userData: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
-}
 class EditProfileContainer extends Component {
+  static propTypes = {
+    userData: AppPropTypes.userData,
+    history: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired
+  }
   constructor (props) {
     super()
     const profileId = props.match.params.profileId
@@ -18,7 +19,7 @@ class EditProfileContainer extends Component {
       _id: profile._id,
       firstName: profile.firstName,
       lastName: profile.lastName,
-      emal: profile.email,
+      email: profile.email,
       password: profile.password,
       isDairy: profile.isDairy,
       isSweet: profile.isSweet,
@@ -64,7 +65,5 @@ render () {
     />)
 }
 }
-
-EditProfileContainer.propTypes = propTypes
 
 export default withRouter(EditProfileContainer)

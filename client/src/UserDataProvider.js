@@ -36,8 +36,9 @@ class UserDataProvider extends Component {
         .then(this.methods.getAllUsers),
 
     findUserById: (profileId) => {
-      for (let i = 0; i < this.state.profile.length; i++) {
-        const currentProfile = this.state.profile[i]
+      for (let i = 0; i < this.state.user.length; i++) {
+        const currentProfile = this.state.user[i]
+        console.log(this.state.user[i], 'user in userbyid')
         if (profileId === currentProfile._id) {
           return currentProfile
         }
@@ -62,7 +63,7 @@ class UserDataProvider extends Component {
       ...this.state,
       ...this.methods
     }
-    return React.cloneElement(this.props.children,{userData})
+    return React.cloneElement(this.props.children, {userData})
   }
 }
 export default UserDataProvider
