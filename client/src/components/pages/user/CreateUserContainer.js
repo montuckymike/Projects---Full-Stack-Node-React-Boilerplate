@@ -1,19 +1,27 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import CreateUser from './CreateUser'
+import {userData} from '../../../lib/propTypes'
 import {withRouter} from 'react-router-dom'
+
+const propTypes = {
+  userData
+}
 
 class CreateUserContainer extends Component {
   static propTypes = {
-    CreateUser: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    userData: PropTypes.object.isRequired
   }
 
   state = {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    isSweet: false,
+    isDairy: false,
+    imgae: undefined
   }
 
   onFirstNameChanged = (event) => this.setState({
@@ -32,12 +40,24 @@ class CreateUserContainer extends Component {
     password: event.target.value
   })
 
+  onDairyChanged = () => {
+    this.setState({isDairy: !this.state.isDairy})
+  }
+
+  onSweetnessChanged = () => {
+    this.setState({isSweet: !this.state.isSweet})
+  }
+
+  onImageChanged = (event) => this.setState({
+    image: event.target.value
+  })
+
   onSubmit = (event) => {
     event.preventDefault()
     console.log('On Submit triggered')
-    this.props.CreateUser(this.state)
-      .then(() => this.props.history.push('/'))
-      .then(() => alert(`Congrats, you are all signed up ${this.state.firstName}`))
+    this.props.userData.addUser(this.state)
+    this.props.history.push('/')
+    alert(`Congrats, you are all signed up ${this.state.firstName}`)
   }
 
   render () {
@@ -51,10 +71,16 @@ class CreateUserContainer extends Component {
         onEmailChanged={this.onEmailChanged}
         password={this.state.password}
         onPasswordChanged={this.onPasswordChanged}
+        isDairy={this.state.isDairy}
+        onDairyChanged={this.onDairyChanged}
+        isSweet={this.state.isSweet}
+        onSweetnessChanged={this.onSweetnessChanged}
+        onImageChanged={this.onImageChanged}
         onSubmit={this.onSubmit}
       />
     )
   }
 }
+CreateUserContainer.propTypes = propTypes
 
 export default withRouter(CreateUserContainer)

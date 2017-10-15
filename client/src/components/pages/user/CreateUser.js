@@ -1,12 +1,28 @@
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
+import {FormControlLabel} from 'material-ui/Form'
+import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
-import MenuItem from 'material-ui/Menu/MenuItem'
-import Select from 'material-ui/Select'
-import {FormControl} from 'material-ui/Form'
 import injectSheet from 'react-jss'
+
+const propTypes = {
+  classes: PropTypes.object.isRequired,
+  firstName: PropTypes.string.isRequired,
+  onFirstNameChanged: PropTypes.func.isRequired,
+  lastName: PropTypes.string.isRequired,
+  onLastNameChanged: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  onEmailChanged: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  onPasswordChanged: PropTypes.func.isRequired,
+  isDairy: PropTypes.bool.isRequired,
+  onDairyChanged: PropTypes.func.isRequired,
+  isSweet: PropTypes.bool.isRequired,
+  onSweetnessChanged: PropTypes.func.isRequired,
+  onImageChanged: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
 
 const styles = {
   container: {
@@ -84,38 +100,31 @@ const CreateUser = props => {
             value={props.password}
             onChange={props.onPasswordChanged}
           />
-          <FormControl>
-            <Select
-              label='Diary Preference'
-              className={classes.inputTag}
-              value='Diary Preference'
-            >
-              <MenuItem value=''>Select One</MenuItem>
-              <MenuItem value='Dairy'>Diary</MenuItem>
-              <MenuItem value='Non-Diary'>Non Diary</MenuItem>
-            </Select>
-          </FormControl>
-          <Button onSubmit={props.onSubmit}
-            className={classes.button}
-            raised>Submit
-          </Button>
+          <FormControlLabel
+            control={
+              <Switch
+                onClick={() => props.onDairyChanged()}
+                checked={props.isDairy}
+              />
+            }
+            label='Dairy'
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                onClick={() => props.onSweetnessChanged()}
+                checked={props.isSweet}
+              />
+            }
+            label='Sweet'
+          />
+          <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
         </form>
       </div>
     </div>
   )
 }
 
-CreateUser.propTypes = {
-  classes: PropTypes.object.isRequired,
-  firstName: PropTypes.string.isRequired,
-  onFirstNameChanged: PropTypes.func.isRequired,
-  lastName: PropTypes.string.isRequired,
-  onLastNameChanged: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  onEmailChanged: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
-  onPasswordChanged: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
-}
+CreateUser.propTypes = propTypes
 
 export default enhancer(CreateUser)

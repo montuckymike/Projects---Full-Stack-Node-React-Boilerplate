@@ -1,6 +1,6 @@
 import React from 'react'
 import Input, {InputLabel} from 'material-ui/Input'
-import { FormControlLabel, FormGroup } from 'material-ui/Form'
+import { FormControlLabel} from 'material-ui/Form'
 import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
 import PropTypes from 'prop-types'
@@ -40,8 +40,10 @@ const enhancer = injectSheet(styles)
 const propTypes = {
   onNameChanged: PropTypes.func.isRequired,
   onDairyChanged: PropTypes.func.isRequired,
+  isDairy: PropTypes.bool.isRequired,
   onImageChanged: PropTypes.func.isRequired,
   onSweetnessChanged: PropTypes.func.isRequired,
+  isSweet: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
@@ -61,11 +63,30 @@ const AddDrinkForm = (props) => (
           />
           <Input
             placeholder='Add a Photo URL'
+            onChange={props.onImageChanged}
             inputProps={{
               'aria-label': 'Description'
             }}
           />
-          <Button raised>Submit</Button>
+          <FormControlLabel
+            control={
+              <Switch
+                onClick={() => props.onDairyChanged()}
+                checked={props.isDairy}
+              />
+            }
+            label='Dairy'
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                onClick={() => props.onSweetnessChanged()}
+                checked={props.isSweet}
+              />
+            }
+            label='Sweet'
+          />
+          <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
         </form>
       </div>
     </div>
