@@ -5,7 +5,7 @@ export const user = PropTypes.shape({
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired
-}).isRequired
+})
 
 export const userData = PropTypes.shape({
   isLoaded: PropTypes.bool.isRequired,
@@ -23,4 +23,5 @@ export const drink = PropTypes.shape({
 export const drinkData = PropTypes.shape({
   isLoaded: PropTypes.bool.isRequired,
   addDrink: PropTypes.func.isRequired
+
 }).isRequired

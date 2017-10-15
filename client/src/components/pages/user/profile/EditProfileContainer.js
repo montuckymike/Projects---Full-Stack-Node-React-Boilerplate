@@ -1,22 +1,21 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import * as AppPropTypes from '../../../../lib/propTypes'
 import EditProfileForm from './EditProfileForm'
 import {withRouter} from 'react-router-dom'
 
 class EditProfileContainer extends Component {
   static propTypes = {
-    userData: AppPropTypes.userData,
+    userData: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired
   }
   constructor (props) {
+    console.log(props.userData)
     super()
     const profileId = props.match.params.profileId
     const profile = props.userData.findUserById(profileId)
 
     this.state = {
-      _id: profile._id,
       firstName: profile.firstName,
       lastName: profile.lastName,
       email: profile.email,
@@ -53,7 +52,7 @@ onSubmit = (event) => {
 
 render () {
   return (
-    <EditProfileForm
+    this.state.profile ? <EditProfileForm
       {...this.state}
       onFirstNameChanged={this.onFirstNameChanged}
       onLastNameChanged={this.onLastNameChanged}
@@ -61,8 +60,10 @@ render () {
       onPasswordChanged={this.onPasswordChanged}
       onDairyChanged={this.onDairyChanged}
       onSweetnessChange={this.onSweetnessChanged}
+      onFavCoffee={this.onFavCoffee}
+      onFavoriteCoffeeShop={this.onFavoriteCoffeeShop}
       onSubmit={this.onSubmit}
-    />)
+    /> : null)
 }
 }
 

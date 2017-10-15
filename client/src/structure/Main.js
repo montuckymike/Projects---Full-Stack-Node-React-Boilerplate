@@ -45,7 +45,7 @@ const Main = ({drinkData, userData}) => {
       <Route path='/TopTen' render={() => <TopTen />} />
       <Route path='/Profile' render={(routeProps) => <ProfileContainer userData={userData} history={routeProps.history} />} />
       <Route path='/Randomizer' render={() => <Randomizer />} />
-      <Route path='/EditProfile' render={() => <EditProfileContainer />} />
+      <Route path='/EditProfile' render={(routeProps) => <EditProfileContainer userData={userData} history={routeProps.history} />} />
     </div>
   )
 }
