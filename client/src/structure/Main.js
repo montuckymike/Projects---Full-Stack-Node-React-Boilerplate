@@ -35,7 +35,7 @@ const Main = ({drinkData, userData}) => {
   return (
     <div>
       <Route path='/'exact component={Home} />
-      <Route path='/AddDrink' render={() => <AddDrinkContainer />} />
+      <Route path='/AddDrink' render={() => <AddDrinkContainer drinkData={drinkData} />} />
       <Route path='/AllDrinks' render={() => <AllDrinks drinkData={drinkData} />} />
       <Route path='/EditDrink' render={() => <EditDrink />} />
       <Route path='/ListUsers' render={() => <ListUsers />} />

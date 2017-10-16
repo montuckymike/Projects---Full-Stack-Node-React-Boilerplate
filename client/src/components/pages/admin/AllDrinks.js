@@ -1,6 +1,14 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import SimpleMediaCard from '../../drinkCard'
+import DrinkCard from './drink/DrinkCard'
+import {Link, withRouter} from 'react-router-dom'
+import * as AppPropTypes from '../../../lib/propTypes'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  drinkData: AppPropTypes.drinkData,
+  history: PropTypes.object.isRequired
+}
 
 const styles = {
   drinkContainer: {
@@ -48,38 +56,40 @@ const styles = {
 
 const enhancer = injectSheet(styles)
 
-const AllDrinks = (props) => {
+const AllDrinks = ({drinkData, classes}) => {
   return (
     <div>
-      <div className={props.classes.mainDiv}>
-        <h1 className={props.classes.heroTitle}> All the Drinks </h1>
-        <h3 className={props.classes.heroSubTitle}>Here is the list of all the drinks</h3>
+      <div className={classes.mainDiv}>
+        <h1 className={classes.heroTitle}> All the Drinks </h1>
+        <h3 className={classes.heroSubTitle}>Here is the list of all the drinks</h3>
       </div>
-      <div className={props.classes.drinkContainer}>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
-        </div>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
-        </div>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
-        </div>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
-        </div>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
-        </div>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
-        </div>
-        <div className={props.classes.drinkCard} >
-          <SimpleMediaCard />
+      <div className={classes.drinkContainer}>
+        <div className={classes.drinkCard} >
+          {
+            drinkData && drinkData.drinks && drinkData.drinks.length > 0
+              ? drinkData.drinks.map(drink =>
+                <DrinkCard
+                  key={drink._id}
+                  drink={drink}
+                  onDelete={() => drinkData.deleteDrink(drink._id)}
+                  onEdit={() => drinkData.editDrink(drink._id)}
+                />
+              ) : <h1> No Drinks </h1>
+          }
         </div>
       </div>
     </div>
   )
 }
 
-export default enhancer(AllDrinks)
+AllDrinks.propTypes = {
+  classes: PropTypes.object.isRequired,
+  drink: AppPropTypes.drink,
+  drinkData: AppPropTypes.drinkData,
+  onEdit: PropTypes.func.isRequired,
+  deleteDrink: PropTypes.func.isRequired
+}
+
+AllDrinks.propTypes = propTypes
+
+export default enhancer(withRouter(AllDrinks))

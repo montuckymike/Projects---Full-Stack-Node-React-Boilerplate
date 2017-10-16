@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 const DrinkSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  isDairy: { type: Boolean, required: true, default: true },
+  isDairy: { type: Boolean, required: true, default: false },
   image: { type: String, required: true },
-  isSweet: { type: Boolean, required: true }
+  isSweet: { type: Boolean, required: true, default: false }
 })
 
 DrinkSchema.methods.loadData = function (data) {

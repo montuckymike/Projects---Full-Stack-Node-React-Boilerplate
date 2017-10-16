@@ -2,16 +2,17 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {drinkData} from '../../../lib/propTypes'
 import AddDrinkForm from './AddDrinkForm'
-
-const propTypes = {
-  drinkData
-}
+import {withRouter} from 'react-router-dom'
 
 class AddDrinkContainer extends Component {
+  static propTypes = {
+    history: PropTypes.object.isRequired,
+    drinkData: PropTypes.object.isRequired
+  }
   state = {
     name: undefined,
-    isSweet: false,
-    isDairy: false,
+    isSweet: undefined,
+    isDairy: undefined,
     image: undefined
   }
 
@@ -33,6 +34,7 @@ class AddDrinkContainer extends Component {
     event.preventDefault()
     this.props.drinkData.addDrink(this.state)
     console.log('add button worked🍾')
+    alert(`Congrats, you added a ${this.state.name}`)
   }
   render () {
     return (
@@ -48,6 +50,5 @@ class AddDrinkContainer extends Component {
     )
   }
 }
-AddDrinkContainer.propTypes = propTypes
 
-export default AddDrinkContainer
+export default withRouter(AddDrinkContainer)
