@@ -17,7 +17,7 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'flex-end',
-    marginRight: '23%'
+    marginRight: 45
   },
   input: {
     display: 'flex',

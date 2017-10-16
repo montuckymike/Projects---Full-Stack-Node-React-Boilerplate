@@ -8,36 +8,38 @@ import injectSheet from 'react-jss'
 
 const styles = {
   formAndPhotoBucket: {
-    border: 'dashed orange',
     display: 'flex',
     justifyContent: 'space-evenly'
-  },
-  formBucket: {
-    border: 'solid green'
   },
   input: {
     display: 'flex',
     flexDirection: 'column',
-
     margin: 10,
     width: '33.33333333333vw',
-    height: '100vw',
-    border: 'solid pink'
+    height: '30vw',
+    border: 'solid black'
   },
   inputTag: {
     border: 'solid yellow',
     width: ''
   },
   photo: {
-    border: 'solid red',
     display: 'flex',
-    width: '35%',
-    height: '25%'
+    width: 700,
+    height: 500
+  },
+  button: {
+    margin: 20,
+    width: 20
+  },
+  header: {
+    fontFamily: 'Merriweather',
+    margin: 25
   }
 }
-const enhancer = injectSheet(styles)
 
 const propTypes = {
+  classes: PropTypes.object.isRequired,
   onNameChanged: PropTypes.func.isRequired,
   onDairyChanged: PropTypes.func.isRequired,
   isDairy: PropTypes.bool.isRequired,
@@ -47,58 +49,62 @@ const propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 
-const EditDrink = (props) => (
-  <div>
-    <h1>Edit Drink Form</h1>
-    <div className={props.classes.formAndPhotoBucket} >
-      <img className={props.classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
-      <div className={props.classes.formBucket}>
-        <form className={props.classes.input}>
-          <Input
-            placeholder='Edit Drink Name'
-            onChange={props.onNameChanged}
-            inputProps={{
-              'aria-label': 'Description'
-            }}
-          />
-          <Input
-            placeholder='Edit Photo URL'
-            onChange={props.onImageChanged}
-            inputProps={{
-              'aria-label': 'Description'
-            }}
-          />
-          <Input
-            placeholder='Insert Drink ID here'
-            inputProps={{
-              'aria-label': 'Description'
-            }}
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                onClick={() => props.onDairyChanged()}
-                checked={props.isDairy}
-              />
-            }
-            label='Dairy'
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                onClick={() => props.onSweetnessChanged()}
-                checked={props.isSweet}
-              />
-            }
-            label='Sweet'
-          />
-          <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
-        </form>
+const enhancer = injectSheet(styles)
+
+const EditDrink = props => {
+  const { classes } = props
+  return (
+    <div>
+      <h1 className={classes.header}>Edit A Drink</h1>
+      <div className={props.classes.formAndPhotoBucket} >
+        <img className={props.classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
+        <div className={props.classes.formBucket}>
+          <form className={props.classes.input}>
+            <Input
+              placeholder='Edit Drink Name'
+              onChange={props.onNameChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Edit Photo URL'
+              onChange={props.onImageChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Insert Drink ID here'
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  onClick={() => props.onDairyChanged()}
+                  checked={props.isDairy}
+                />
+              }
+              label='Dairy'
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  onClick={() => props.onSweetnessChanged()}
+                  checked={props.isSweet}
+                />
+              }
+              label='Sweet'
+            />
+            <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-)
-EditDrink.propTypes = {
-  classes: PropTypes.object.isRequired
+  )
 }
+EditDrink.propTypes = propTypes
+
 export default enhancer(EditDrink)

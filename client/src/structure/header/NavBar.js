@@ -29,8 +29,8 @@ const NavBar = props => {
     <div className={classes.navLinks}>
       <NavLink className={classes.links} to='/'>Home</NavLink>
       <NavLink className={classes.links} to='/Randomizer'>Randomizer</NavLink>
-      <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
       <NavLink className={classes.links} to='/AllDrinks'>All Drinks</NavLink>
+      <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
       <NavLink className={classes.links} to='/EditDrink'>Edit Drink</NavLink>
       <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
       <NavLink className={classes.links} to='/Login'>Login</NavLink>
