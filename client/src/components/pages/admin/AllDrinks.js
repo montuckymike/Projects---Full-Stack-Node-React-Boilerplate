@@ -1,14 +1,95 @@
 import React from 'react'
+import injectSheet from 'react-jss'
+import DrinkCard from './drink/DrinkCard'
+import {Link, withRouter} from 'react-router-dom'
+import * as AppPropTypes from '../../../lib/propTypes'
+import PropTypes from 'prop-types'
 
-const AllDrinks = ({drinkData}) => {
-  console.log(drinkData)
+const propTypes = {
+  drinkData: AppPropTypes.drinkData,
+  history: PropTypes.object.isRequired
+}
+
+const styles = {
+  drinkContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingLeft: '2%',
+    paddingRight: '2%',
+    paddingTop: '2%',
+    paddingBottom: '2%'
+  },
+  drinkCard: {
+    marginBottom: '20px'
+  },
+  mainDiv: {
+    height: 500,
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundImage: 'url("https://burst.shopifycdn.com/photos/pouring-hot-coffee_925x.jpg")',
+    position: 'relative',
+    justifyContent: 'center'
+  },
+  heroTitle: {
+    fontSize: '4em',
+    color: 'white',
+    fontFamily: 'Bookman',
+    textShadow: '1px 1px 2px black'
+  },
+  heroButton: {
+    width: '25%'
+  },
+  heroSubTitle: {
+    fontSize: '2em',
+    color: 'white',
+    fontFamily: 'Bookman',
+    textShadow: '1px 1px 2px black'
+  }
+}
+
+const enhancer = injectSheet(styles)
+
+const AllDrinks = ({drinkData, classes}) => {
   return (
     <div>
-      {
-        drinkData.isLoaded ? <h2>{drinkData.drinks[0].name}</h2> : null
-      }
+      <div className={classes.mainDiv}>
+        <h1 className={classes.heroTitle}> All the Drinks </h1>
+        <h3 className={classes.heroSubTitle}>Here is the list of all the drinks</h3>
+      </div>
+      <div className={classes.drinkContainer}>
+        <div className={classes.drinkCard} >
+          {
+            drinkData && drinkData.drinks && drinkData.drinks.length > 0
+              ? drinkData.drinks.map(drink =>
+                <DrinkCard
+                  key={drink._id}
+                  drink={drink}
+                  onDelete={() => drinkData.deleteDrink(drink._id)}
+                  onEdit={() => drinkData.editDrink(drink._id)}
+                />
+              ) : <h1> No Drinks </h1>
+          }
+        </div>
+      </div>
     </div>
   )
 }
 
-export default AllDrinks
+AllDrinks.propTypes = {
+  classes: PropTypes.object.isRequired,
+  drink: AppPropTypes.drink,
+  drinkData: AppPropTypes.drinkData,
+  onEdit: PropTypes.func.isRequired,
+  deleteDrink: PropTypes.func.isRequired
+}
+
+AllDrinks.propTypes = propTypes
+
+export default enhancer(withRouter(AllDrinks))

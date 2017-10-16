@@ -36,7 +36,7 @@ const Main = ({drinkData, userData}) => {
   return (
     <div>
       <Route path='/'exact component={Home} />
-      <Route path='/AddDrink' render={() => <AddDrinkContainer />} />
+      <Route path='/AddDrink' render={() => <AddDrinkContainer drinkData={drinkData} />} />
       <Route path='/AllDrinks' render={() => <AllDrinks drinkData={drinkData} />} />
       <Route path='/EditDrink' render={() => <EditDrink drinkData={drinkData} />} />
       <Route path='/ListUsers' render={() => <ListUsers />} />
@@ -45,7 +45,7 @@ const Main = ({drinkData, userData}) => {
       <Route path='/TopTen' render={() => <TopTen />} />
       <Route path='/Profile' render={(routeProps) => <ProfileContainer userData={userData} history={routeProps.history} />} />
       <Route path='/Randomizer' render={() => <Randomizer />} />
-      <Route path='/EditProfile' render={() => <EditProfileContainer />} />
+      <Route path='/EditProfile' render={(routeProps) => <EditProfileContainer userData={userData} history={routeProps.history} />} />
     </div>
   )
 }

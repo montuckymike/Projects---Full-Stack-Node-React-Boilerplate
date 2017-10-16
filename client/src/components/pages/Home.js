@@ -12,7 +12,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundImage: 'url("https://burst.shopifycdn.com/photos/pouring-an-espresso_925x@2x.jpg")',
+    backgroundImage: 'url("https://burst.shopifycdn.com/photos/hot-coffee-cinemagraph.gif")',
     clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
     position: 'relative',
     justifyContent: 'center'
@@ -116,7 +116,6 @@ const Home = (props) => {
     <div>
       <div className={props.classes.mainDiv}>
         <h1 className={props.classes.heroTitle}> Drink Randomizer 2000 </h1>
-        <img src='https://i.pinimg.com/originals/22/ff/79/22ff79f1d2eadfd0deda241e128510b1.png' />
         <h3 className={props.classes.heroSubTitle}>A Coffee App for Coffee People</h3>
       </div>
       <div className={props.classes.iconDiv}>
@@ -174,13 +173,6 @@ const Home = (props) => {
             <button>Radomize Now!</button>
           </div>
         </div>
-        <h1> Rest of Page Stuff </h1>
-        <h1> Rest of Page Stuff </h1>
-        <h1> Rest of Page Stuff </h1>
-        <h1> Changes  Stuff </h1>
-        <h1> Another trivial change </h1>
-        <h1> Trivial Change to Home  </h1>
-        <h1> Test of Page Stuff </h1>
       </div>
     </div>
   )

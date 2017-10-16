@@ -13,13 +13,9 @@ class LoginContainer extends Component {
     email: '',
     password: ''
   }
-  onEmailChanged = (event) => this.setState({
-    email: event.target.value
-  })
+  onEmailChanged = (event) => this.setState({email: event.target.value})
 
-  onPasswordChanged = (event) => this.setState({
-    password: event.target.value
-  })
+  onPasswordChanged = (event) => this.setState({password: event.target.value})
 
   onSubmit = (event) => {
     event.preventDefault()
@@ -35,9 +31,8 @@ class LoginContainer extends Component {
   render () {
     return (
       <LoginForm
-        email={this.state.email}
+        {...this.state}
         onEmailChanged={this.onEmailChanged}
-        password={this.state.password}
         onPasswordChanged={this.onPasswordChanged}
         onSubmit={this.onSubmit}
       />

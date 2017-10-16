@@ -6,15 +6,11 @@ const UserSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
-    password: String
+    password: String,
+    favCoffee: String,
+    favoriteCoffeeShop: String
   }
 })
-
-UserSchema.methods.loadData = function (data) {
-  this.name = data.name || this.name
-  this.password = data.password || this.password
-  this.address = data.address || this.address
-}
 
 UserSchema.methods.setMetaDates = function () {
   const newDate = new Date()
