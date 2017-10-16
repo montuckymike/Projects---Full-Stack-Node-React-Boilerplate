@@ -21,7 +21,21 @@ class DrinkDataProvider extends Component {
 
     addDrink: (newDrink) =>
       ServerApi.addDrink(newDrink)
-        .then((res) => console.log('serverApi', res))
+        .then(() => {
+          this.methods.getAllDrinks()
+        }),
+
+    deleteDrink: (drinkId) =>
+      ServerApi.deleteDrink(drinkId)
+        .then(() => {
+          this.methods.getAllDrinks()
+        }),
+
+    editDrink: (drinkId) =>
+      ServerApi.editDrink(drinkId)
+        .then(() => {
+          this.methods.getAllDrinks()
+        })
   }
 
   componentDidMount () {

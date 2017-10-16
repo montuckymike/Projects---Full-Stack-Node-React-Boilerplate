@@ -80,7 +80,9 @@ class UserDataProvider extends Component {
   render () {
     const userData = {
       ...this.state,
-      ...this.methods
+      ...this.methods,
+      loggedIn: this.state.user != null,
+      loggedOut: this.state.user == null
     }
     return React.cloneElement(this.props.children, {userData})
   }

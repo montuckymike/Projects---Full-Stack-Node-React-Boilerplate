@@ -33,6 +33,10 @@ export const getAllDrinks = () => ajaxRequest({url: '/api/drinks', method: 'GET'
 
 export const addDrink = (drink) => ajaxRequest({url: '/api/drinks', method: 'POST', body: drink})
 
+export const editDrink = (drink) => ajaxRequest({url: `/api/drinks/${drink._id}`, method: 'PUT'})
+
+export const deleteDrink = (drinkId) => ajaxRequest({url: `/api/drinks/${drinkId}`, method: 'DELETE', drinkId})
+
 export const getAllUsers = () => ajaxRequest({url: '/api/users', method: 'GET'})
 
 export const addUser = (newUser) => {
