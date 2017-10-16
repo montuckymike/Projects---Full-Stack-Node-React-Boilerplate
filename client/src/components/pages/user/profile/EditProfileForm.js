@@ -7,10 +7,6 @@ const propTypes = {
   onFirstNameChanged: PropTypes.func.isRequired,
   lastName: PropTypes.string.isRequired,
   onLastNameChanged: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  onEmailChanged: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
-  onPasswordChanged: PropTypes.func.isRequired,
   isDairy: PropTypes.bool.isRequired,
   onDairyChanged: PropTypes.func.isRequired,
   isSweet: PropTypes.bool.isRequired,
@@ -26,14 +22,12 @@ const EditProfileForm = props => {
   const { classes } = props
   return (
     <form onSubmit={props.onSubmit}>
-      First Name: <input type='text' className={classes.name} value={props.firstName} onChange={props.onFirstNameChanged} />
+      First Name: <input type='text' value={props.firstName} onChange={props.onFirstNameChanged} />
       Last Name: <input type='text' value={props.lastName} onChange={props.onLastNameChanged} />
-      Email: <input type='text' value={props.email} onChange={props.onEmailChanged} />
-      Password: <input type='text' value={props.password} onChange={props.onPasswordChanged} />
       Dairy Preference: <input type='text' value={props.isDairy} onChange={props.onDairyChanged} />
       Sweetness Preference: <input type='text' value={props.isSweet} onChange={props.onSweetnessChanged} />
-      Favorite Coffee: <input type='text' value={props.favCoffee} onChange={props.onFavCoffee} />
-      Favorite Coffee Shop: <input type='text' value={props.favoriteCoffeeShop} onChange={props.onFavoriteCoffeeShop} />
+      Favorite Coffee: <input type='text' value={props.favCoffee ? props.favCoffee : 'Pick your favorite Coffee'} onChange={props.onFavCoffee} />
+      Favorite Coffee Shop: <input type='text' value={props.favoriteCoffeeShop ? props.favoriteCoffeeShop : 'Pick your favorite Coffee Shop'} onChange={props.onFavoriteCoffeeShop} />
 
       <input
         type='submit'

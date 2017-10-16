@@ -6,33 +6,38 @@ import {withRouter} from 'react-router-dom'
 class EditProfileContainer extends Component {
   static propTypes = {
     userData: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired
   }
-  constructor (props) {
-    console.log(props.userData)
-    super()
-    const profileId = props.match.params.profileId
-    const profile = props.userData.findUserById(profileId)
-    this.state = {
-      firstName: profile.firstName,
-      lastName: profile.lastName,
-      email: profile.email,
-      password: profile.password,
-      isDairy: profile.isDairy,
-      isSweet: profile.isSweet,
-      favCoffee: profile.favCoffee,
-      favoriteCoffeeShop: profile.favoriteCoffeeShop
+
+  state = {
+    loaded: false,
+    firstName: undefined,
+    lastName: undefined,
+    isDairy: undefined,
+    isSweet: undefined,
+    favCoffee: undefined,
+    favoriteCoffeeShop: undefined
+  }
+
+  componentDidMount () {
+    if (!this.props.userData || !this.props.userData.user) {
+      this.props.history.push('/login')
+    } else {
+      this.setState({
+        firstName: this.props.userData.user.local.firstName,
+        lastName: this.props.userData.user.local.lastName,
+        isDairy: this.props.userData.user.local.isDairy,
+        isSweet: this.props.userData.user.local.isSweet,
+        favCoffee: this.props.userData.user.local.favCoffee,
+        favoriteCoffeeShop: this.props.userData.user.local.favoriteCoffeeShop,
+        loaded: true
+      })
     }
   }
 
 onFirstNameChanged = (event) => this.setState({firstName: event.target.value})
 
 onLastNameChanged = (event) => this.setState({lastName: event.target.value})
-
-onEmailChanged = (event) => this.setState({email: event.target.value})
-
-onPasswordChanged = (event) => this.setState({password: event.target.value})
 
 onDairyChanged = (event) => this.setState({isDairy: event.target.value})
 
@@ -51,12 +56,10 @@ onSubmit = (event) => {
 
 render () {
   return (
-    this.state.profile ? <EditProfileForm
+    this.state.loaded ? <EditProfileForm
       {...this.state}
       onFirstNameChanged={this.onFirstNameChanged}
       onLastNameChanged={this.onLastNameChanged}
-      onEmailChanged={this.onEmailChanged}
-      onPasswordChanged={this.onPasswordChanged}
       onDairyChanged={this.onDairyChanged}
       onSweetnessChange={this.onSweetnessChanged}
       onFavCoffee={this.onFavCoffee}
