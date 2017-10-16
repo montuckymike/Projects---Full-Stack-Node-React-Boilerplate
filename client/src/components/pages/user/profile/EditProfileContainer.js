@@ -14,7 +14,6 @@ class EditProfileContainer extends Component {
     super()
     const profileId = props.match.params.profileId
     const profile = props.userData.findUserById(profileId)
-
     this.state = {
       firstName: profile.firstName,
       lastName: profile.lastName,

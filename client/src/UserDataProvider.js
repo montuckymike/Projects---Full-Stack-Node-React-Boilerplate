@@ -56,7 +56,21 @@ class UserDataProvider extends Component {
             user: loggedInUser
           })
           return loggedInUser
-        })
+        }),
+    logoutUser: () =>
+      ServerApi.logoutUser()
+        .then(() => this.onUserUpdated(null))
+  }
+
+  onUserUpdated = user => {
+    if (!user) {
+      this.setState({
+        user: null,
+        profile: null
+      })
+        .then(profile => this.setState({user, profile}))
+    }
+    return user
   }
 
   componentDidMount () {

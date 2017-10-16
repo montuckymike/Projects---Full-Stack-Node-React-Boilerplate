@@ -4,6 +4,10 @@ import injectSheet from 'react-jss'
 import Avatar from 'material-ui/Avatar'
 import PropTypes from 'prop-types'
 
+const propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
 const styles = {
   masterDiv: {
     display: 'flex',
@@ -33,20 +37,21 @@ const styles = {
 
 const enhancer = injectSheet(styles)
 
-const Header = ({classes}) => {
+const Header = props => {
+  const { classes } = props
   return (
-    <div className={classes.masterDiv}>
-      <div className={classes.navPanel}>
-        <NavBar />
+    <header>
+      <div className={classes.masterDiv}>
+        <div className={classes.navPanel}>
+          <NavBar />
+        </div>
+        <div className={classes.gravatar}>
+          <Avatar className={classes.avatar}src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
+        </div>
       </div>
-      <div className={classes.gravatar}>
-        <Avatar className={classes.avatar}src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-      </div>
-    </div>
+    </header>
   )
 }
-Header.propTypes = {
-  classes: PropTypes.object.isRequired
-}
+Header.propTypes = propTypes
 
 export default enhancer(Header)
