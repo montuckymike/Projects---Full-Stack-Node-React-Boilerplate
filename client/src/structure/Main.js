@@ -38,7 +38,7 @@ const Main = ({drinkData, userData}) => {
       <Route path='/'exact component={Home} />
       <Route path='/AddDrink' render={() => <AddDrinkContainer />} />
       <Route path='/AllDrinks' render={() => <AllDrinks drinkData={drinkData} />} />
-      <Route path='/EditDrink' render={() => <EditDrink />} />
+      <Route path='/EditDrink' render={() => <EditDrink drinkData={drinkData} />} />
       <Route path='/ListUsers' render={() => <ListUsers />} />
       <Route path='/CreateUser' render={() => <CreateUserContainer userData={userData} />} />
       <Route path='/Login' render={() => <LoginContainer userData={userData} />} />
