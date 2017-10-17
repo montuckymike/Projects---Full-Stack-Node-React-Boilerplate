@@ -34,7 +34,8 @@ const styles = {
   },
   header: {
     fontFamily: 'Merriweather',
-    margin: 25
+    margin: 10,
+    paddingLeft: '70%'
   }
 }
 
