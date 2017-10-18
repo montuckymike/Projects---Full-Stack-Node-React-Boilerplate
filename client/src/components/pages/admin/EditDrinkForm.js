@@ -1,5 +1,5 @@
 import React from 'react'
-import Input, {InputLabel} from 'material-ui/Input'
+import Input from 'material-ui/Input'
 import {FormControlLabel} from 'material-ui/Form'
 import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
@@ -34,15 +34,18 @@ const styles = {
   },
   header: {
     fontFamily: 'Merriweather',
-    margin: 25
+    margin: 10,
+    paddingLeft: '70%'
   }
 }
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
   onNameChanged: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
   onDairyChanged: PropTypes.func.isRequired,
   isDairy: PropTypes.bool.isRequired,
+  image: PropTypes.string.isRequired,
   onImageChanged: PropTypes.func.isRequired,
   onSweetnessChanged: PropTypes.func.isRequired,
   isSweet: PropTypes.bool.isRequired,
@@ -80,7 +83,7 @@ const EditDrinkForm = props => {
               control={
                 <Switch
                   onClick={() => props.onDairyChanged()}
-                  checked={props.isDairy}
+                  checked={props.isDairy ? props.isDairy : false}
                 />
               }
               label='Dairy'
@@ -89,12 +92,12 @@ const EditDrinkForm = props => {
               control={
                 <Switch
                   onClick={() => props.onSweetnessChanged()}
-                  checked={props.isSweet}
+                  checked={props.isSweet ? props.isSweet : false}
                 />
               }
               label='Sweet'
             />
-            <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+            <Button className={props.classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
           </form>
         </div>
       </div>

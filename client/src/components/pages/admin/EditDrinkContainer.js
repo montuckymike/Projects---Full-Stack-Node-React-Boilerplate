@@ -6,7 +6,8 @@ import {withRouter} from 'react-router-dom'
 class EditDrinkContainer extends Component {
   static propTypes = {
     drinkData: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired
   }
 
   state = {
@@ -34,9 +35,9 @@ class EditDrinkContainer extends Component {
 
   onImageChanged = (event) => this.setState({image: event.target.value})
 
-  onDairyChanged = (event) => this.setState({isDairy: event.target.value})
+  onDairyChanged = () => { this.setState({isDairy: !this.state.isDairy}) }
 
-  onSweetnessChanged = (event) => this.setState({isSweet: event.target.value})
+  onSweetnessChanged = () => { this.setState({isSweet: !this.state.isSweet}) }
 
   onSubmit = (event) => {
     event.preventDefault()
