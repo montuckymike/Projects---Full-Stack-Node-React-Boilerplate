@@ -118,7 +118,9 @@ const DrinkCard = props => {
         </div>
       </div>
       <div className={classes.buttonContainer}>
-        <button className={classes.button} onClick={props.onEdit}>Edit</button>
+        <Link className={classes.button} to={`/EditDrink/${props.drink._id}`}>
+          Edit
+        </Link>
       </div>
       <div className={classes.buttonContainer}>
         <button className={classes.button} onClick={props.onDelete}>Delete</button>

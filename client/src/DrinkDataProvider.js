@@ -11,7 +11,8 @@ class DrinkDataProvider extends Component {
   state = {
     isLoaded: false,
     drinks: [],
-    randomDrink: undefined
+    randomDrink: undefined,
+    drink: undefined
   }
 
   methods = {
@@ -37,12 +38,6 @@ class DrinkDataProvider extends Component {
           this.methods.getAllDrinks()
         }),
 
-    editDrink: (drinkId) =>
-      ServerApi.editDrink(drinkId)
-        .then(() => {
-          this.methods.getAllDrinks()
-        }),
-
     getRandomDrink: () =>
       ServerApi.getRandomDrink()
         .then((res) => {
@@ -51,7 +46,20 @@ class DrinkDataProvider extends Component {
             isLoaded: true,
             randomDrink: res
           })
+        }),
+
+    getDrinkById: (drinkId) => {
+      ServerApi.getDrinkById(drinkId)
+        .then((drink) => {
+          this.setState({
+            drink: drink
+          })
         })
+    },
+
+    updateDrink: (drinkId, drink) =>
+      ServerApi.updateDrink(drinkId, drink)
+        .then(this.methods.getAllDrinks)
   }
 
   componentDidMount () {

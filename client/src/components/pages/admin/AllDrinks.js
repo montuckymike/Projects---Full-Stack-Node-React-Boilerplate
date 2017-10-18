@@ -66,7 +66,6 @@ const AllDrinks = ({drinkData, classes}) => {
                 key={drink._id}
                 drink={drink}
                 onDelete={() => drinkData.deleteDrink(drink._id)}
-                onEdit={() => drinkData.editDrink(drink._id)}
               />
             ) : <h1> No Drinks </h1>
         }

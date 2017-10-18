@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 import Home from '../components/pages/Home'
 import AddDrinkContainer from '../components/pages/admin/AddDrinkContainer'
 import AllDrinks from '../components/pages/admin/AllDrinks'
-import EditDrink from '../components/pages/admin/EditDrink'
+import EditDrinkContainer from '../components/pages/admin/EditDrinkContainer'
 import ListUsers from '../components/pages/admin/ListUsers'
 import CreateUserContainer from '../components/pages/user/CreateUserContainer'
 import LoginContainer from '../components/pages/authorization/LoginContainer'
@@ -38,7 +38,7 @@ const Main = ({drinkData, userData}) => {
       <Route path='/'exact component={Home} />
       <Route path='/AddDrink' render={() => <AddDrinkContainer drinkData={drinkData} />} />
       <Route path='/AllDrinks' render={() => <AllDrinks drinkData={drinkData} />} />
-      <Route path='/EditDrink' render={() => <EditDrink drinkData={drinkData} />} />
+      <Route path='/EditDrink/:drinkId' render={() => <EditDrinkContainer drinkData={drinkData} />} />
       <Route path='/ListUsers' render={() => <ListUsers />} />
       <Route path='/CreateUser' render={() => <CreateUserContainer userData={userData} />} />
       <Route path='/Login' render={() => <LoginContainer userData={userData} />} />

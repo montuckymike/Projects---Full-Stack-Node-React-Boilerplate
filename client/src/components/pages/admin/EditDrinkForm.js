@@ -1,6 +1,6 @@
 import React from 'react'
 import Input, {InputLabel} from 'material-ui/Input'
-import { FormControlLabel} from 'material-ui/Form'
+import {FormControlLabel} from 'material-ui/Form'
 import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
 import PropTypes from 'prop-types'
@@ -51,7 +51,7 @@ const propTypes = {
 
 const enhancer = injectSheet(styles)
 
-const EditDrink = props => {
+const EditDrinkForm = props => {
   const { classes } = props
   return (
     <div>
@@ -62,6 +62,7 @@ const EditDrink = props => {
           <form className={props.classes.input}>
             <Input
               placeholder='Edit Drink Name'
+              value={props.name}
               onChange={props.onNameChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -69,13 +70,8 @@ const EditDrink = props => {
             />
             <Input
               placeholder='Edit Photo URL'
+              value={props.image}
               onChange={props.onImageChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-            <Input
-              placeholder='Insert Drink ID here'
               inputProps={{
                 'aria-label': 'Description'
               }}
@@ -105,6 +101,6 @@ const EditDrink = props => {
     </div>
   )
 }
-EditDrink.propTypes = propTypes
+EditDrinkForm.propTypes = propTypes
 
-export default enhancer(EditDrink)
+export default enhancer(EditDrinkForm)
