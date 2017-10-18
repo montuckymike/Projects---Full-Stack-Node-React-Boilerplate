@@ -1,6 +1,7 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import NestedList from './nestedList'
+import {signupBtn, randomizerBtn} from '../presentation/Buttons'
 
 const styles = {
   mainDiv: {
@@ -150,7 +151,9 @@ const Home = (props) => {
         <div className={props.classes.heroText}>
           <h1 className={props.classes.heroTitle}> Friends with Benefits ;) </h1>
           <h3 className={props.classes.heroSubTitle}>Become a Premium Member to Unlock All The Features</h3>
-          <button className={props.classes.heroButton}> Sign Up Now! </button>
+          <signupBtn />
+          button should be here 
+          <randomizerBtn />
         </div>
       </div>
       <div>

@@ -1,11 +1,18 @@
 import React, {Component} from 'react'
-import Layout from './structure/Layout'
 import * as ServerApi from './lib/serverApi'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  children: PropTypes.element.isRequired,
+  userData: PropTypes.object.isRequired
+}
 
 class DrinkDataProvider extends Component {
   state = {
     isLoaded: false,
-    drinks: []
+    drinks: [],
+    randomDrink: undefined,
+    drink: undefined
   }
 
   methods = {
@@ -31,11 +38,28 @@ class DrinkDataProvider extends Component {
           this.methods.getAllDrinks()
         }),
 
-    editDrink: (drinkId) =>
-      ServerApi.editDrink(drinkId)
-        .then(() => {
-          this.methods.getAllDrinks()
+    getRandomDrink: () =>
+      ServerApi.getRandomDrink()
+        .then((res) => {
+          console.log('random drink response', res)
+          this.setState({
+            isLoaded: true,
+            randomDrink: res
+          })
+        }),
+
+    getDrinkById: (drinkId) => {
+      ServerApi.getDrinkById(drinkId)
+        .then((drink) => {
+          this.setState({
+            drink: drink
+          })
         })
+    },
+
+    updateDrink: (drinkId, drink) =>
+      ServerApi.updateDrink(drinkId, drink)
+        .then(this.methods.getAllDrinks)
   }
 
   componentDidMount () {
@@ -47,7 +71,10 @@ class DrinkDataProvider extends Component {
       ...this.state,
       ...this.methods
     }
-    return React.cloneElement(this.props.children,{drinkData, userData: this.props.userData})
+    return React.cloneElement(this.props.children, {drinkData, userData: this.props.userData})
   }
 }
+
+DrinkDataProvider.propTypes = propTypes
+
 export default DrinkDataProvider

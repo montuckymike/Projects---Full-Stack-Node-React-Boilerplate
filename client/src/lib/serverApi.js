@@ -31,11 +31,15 @@ const handleErrors = response => {
 }
 export const getAllDrinks = () => ajaxRequest({url: '/api/drinks', method: 'GET'})
 
+export const getDrinkById = (drinkId) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'GET'})
+
 export const addDrink = (drink) => ajaxRequest({url: '/api/drinks', method: 'POST', body: drink})
 
-export const editDrink = (drink) => ajaxRequest({url: `/api/drinks/${drink._id}`, method: 'PUT'})
+export const updateDrink = (drinkId, drink) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'PUT', body: drink})
 
-export const deleteDrink = (drinkId) => ajaxRequest({url: `/api/drinks/${drinkId}`, method: 'DELETE', drinkId})
+export const deleteDrink = (drinkId) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'DELETE'})
+
+export const getRandomDrink = () => ajaxRequest({url: '/api/drinks/random', method: 'GET'})
 
 export const getAllUsers = () => ajaxRequest({url: '/api/users', method: 'GET'})
 
