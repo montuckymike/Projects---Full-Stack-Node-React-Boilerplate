@@ -25,7 +25,7 @@ Router.route('/')
       }
     })
   })
-Router.route('/:drink_id')
+Router.route('/id/:drink_id')
   .delete((req, res) => {
     Drink.remove({_id: req.params.drink_id}, (err) => {
       if (err) {
@@ -47,6 +47,27 @@ Router.route('/:drink_id')
           res.json({ updatedDrink, message: 'Drink Updated' })
         }
       })
+    })
+  })
+  .get((req, res) => {
+    Drink.findById({_id: req.params.drink_id}, (err, drink) => {
+      if (err) {
+        res.json({ message: err, data: null })
+      } else {
+        res.json({ message: 'gotchu a drink☕️', data: drink })
+      }
+    })
+  })
+
+Router.route('/random')
+  .get((req, res) => {
+    Drink.find((err, drinks) => {
+      if (err) {
+        res.json({ message: err, data: null })
+      } else {
+        const drink = drinks[Math.floor(Math.random() * drinks.length)]
+        res.json({ message: 'random drink', data: drink })
+      }
     })
   })
 module.exports = Router
