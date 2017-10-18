@@ -71,12 +71,10 @@ const styles = {
   },
   styleImg: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     paddingBottom: '10px'
   },
   styleImgMini: {
-    width: '50%'
+    width: '100%'
   },
   boolImg: {
     width: '35%'
