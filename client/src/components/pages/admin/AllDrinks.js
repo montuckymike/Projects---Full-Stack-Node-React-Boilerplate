@@ -11,18 +11,13 @@ const propTypes = {
 }
 
 const styles = {
-  drinkContainer: {
+  drinkCard: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    paddingLeft: '2%',
-    paddingRight: '2%',
-    paddingTop: '2%',
-    paddingBottom: '2%'
-  },
-  drinkCard: {
-    marginBottom: '20px'
+    marginBottom: '20px',
+    width: '100%',
+    justifyContent: 'center'
   },
   mainDiv: {
     height: 500,
@@ -63,20 +58,18 @@ const AllDrinks = ({drinkData, classes}) => {
         <h1 className={classes.heroTitle}> All the Drinks </h1>
         <h3 className={classes.heroSubTitle}>Here is the list of all the drinks</h3>
       </div>
-      <div className={classes.drinkContainer}>
-        <div className={classes.drinkCard} >
-          {
-            drinkData && drinkData.drinks && drinkData.drinks.length > 0
-              ? drinkData.drinks.map(drink =>
-                <DrinkCard
-                  key={drink._id}
-                  drink={drink}
-                  onDelete={() => drinkData.deleteDrink(drink._id)}
-                  onEdit={() => drinkData.editDrink(drink._id)}
-                />
-              ) : <h1> No Drinks </h1>
-          }
-        </div>
+      <div className={classes.drinkCard} >
+        {
+          drinkData && drinkData.drinks && drinkData.drinks.length > 0
+            ? drinkData.drinks.map(drink =>
+              <DrinkCard
+                key={drink._id}
+                drink={drink}
+                onDelete={() => drinkData.deleteDrink(drink._id)}
+                onEdit={() => drinkData.editDrink(drink._id)}
+              />
+            ) : <h1> No Drinks </h1>
+        }
       </div>
     </div>
   )
