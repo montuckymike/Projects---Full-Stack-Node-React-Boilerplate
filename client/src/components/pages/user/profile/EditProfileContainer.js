@@ -39,9 +39,9 @@ onFirstNameChanged = (event) => this.setState({firstName: event.target.value})
 
 onLastNameChanged = (event) => this.setState({lastName: event.target.value})
 
-onDairyChanged = (event) => this.setState({isDairy: event.target.value})
+onDairyChanged = () => { this.setState({isDairy: !this.state.isDairy}) }
 
-onSweetnessChanged = (event) => this.setState({isSweet: event.target.value})
+onSweetnessChanged = () => { this.setState({isSweet: !this.state.isSweet}) }
 
 onFavCoffee = (event) => this.setState({favCoffee: event.target.value})
 
@@ -61,7 +61,7 @@ render () {
       onFirstNameChanged={this.onFirstNameChanged}
       onLastNameChanged={this.onLastNameChanged}
       onDairyChanged={this.onDairyChanged}
-      onSweetnessChange={this.onSweetnessChanged}
+      onSweetnessChanged={this.onSweetnessChanged}
       onFavCoffee={this.onFavCoffee}
       onFavoriteCoffeeShop={this.onFavoriteCoffeeShop}
       onSubmit={this.onSubmit}

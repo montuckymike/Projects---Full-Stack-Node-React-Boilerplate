@@ -103,7 +103,7 @@ const EditProfileForm = props => {
             control={
               <Switch
                 onClick={() => props.onDairyChanged()}
-                checked={props.isDairy}
+                checked={props.isDairy ? props.isDairy : false}
               />
             }
             label='Dairy'
@@ -112,12 +112,12 @@ const EditProfileForm = props => {
             control={
               <Switch
                 onClick={() => props.onSweetnessChanged()}
-                checked={props.isSweet}
+                checked={props.isSweet ? props.isSweet : false}
               />
             }
             label='Sweet'
           />
-          <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+          <Button className={props.classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
         </form>
       </div>
     </div>
