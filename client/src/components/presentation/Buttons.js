@@ -9,7 +9,7 @@ const styles = {
 
 const enhancer = injectSheet(styles)
 
-export const signupBtn = (props) => <button onClick='/profile' className={props.classes.signupBtn}>Sign NOT Now!</button>
+/* export const signupBtn = (title, url) => <button onClick='/profile' className={classes.signupBtn}> {title}, {history.push(url)}</button>
 
 export const randomizerBtn = (props) => <button onClick='/profile' className={props.classes.signupBtn}>Randomize!</button>
 
