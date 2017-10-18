@@ -33,9 +33,11 @@ export const getAllDrinks = () => ajaxRequest({url: '/api/drinks', method: 'GET'
 
 export const addDrink = (drink) => ajaxRequest({url: '/api/drinks', method: 'POST', body: drink})
 
-export const editDrink = (drink) => ajaxRequest({url: `/api/drinks/${drink._id}`, method: 'PUT'})
+export const editDrink = (drink) => ajaxRequest({url: `/api/drinks/id/${drink._id}`, method: 'PUT'})
 
-export const deleteDrink = (drinkId) => ajaxRequest({url: `/api/drinks/${drinkId}`, method: 'DELETE', drinkId})
+export const deleteDrink = (drinkId) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'DELETE', drinkId})
+
+export const getRandomDrink = () => ajaxRequest({url: '/api/drinks/random', method: 'GET'})
 
 export const getAllUsers = () => ajaxRequest({url: '/api/users', method: 'GET'})
 

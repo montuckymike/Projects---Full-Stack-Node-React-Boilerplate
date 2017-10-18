@@ -22,6 +22,7 @@ export const drink = PropTypes.shape({
 
 export const drinkData = PropTypes.shape({
   isLoaded: PropTypes.bool.isRequired,
-  addDrink: PropTypes.func.isRequired
+  addDrink: PropTypes.func.isRequired,
+  randomDrink: PropTypes.func.isRequired
 
 }).isRequired
