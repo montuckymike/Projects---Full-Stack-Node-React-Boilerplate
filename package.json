@@ -40,6 +40,6 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    
+    "react-spinners": "^0.1.8"
   }
 }

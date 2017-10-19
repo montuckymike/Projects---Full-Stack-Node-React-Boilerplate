@@ -16,7 +16,7 @@ const styles = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginBottom: '20px',
-    width: '100%',
+    width: '75%',
     justifyContent: 'center'
   },
   mainDiv: {
