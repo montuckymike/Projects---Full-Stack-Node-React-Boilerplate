@@ -9,7 +9,13 @@ export const user = PropTypes.shape({
 
 export const userData = PropTypes.shape({
   isLoaded: PropTypes.bool.isRequired,
-  addUser: PropTypes.func.isRequired
+  addUser: PropTypes.func.isRequired,
+  getAllUsers: PropTypes.func.isRequired,
+  getUserById: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired
 })
 
 export const drink = PropTypes.shape({

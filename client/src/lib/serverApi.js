@@ -43,10 +43,9 @@ export const getRandomDrink = () => ajaxRequest({url: '/api/drinks/random', meth
 
 export const getAllUsers = () => ajaxRequest({url: '/api/users', method: 'GET'})
 
-export const addUser = (newUser) => {
-  console.log('server call triggered', newUser)
-  return ajaxRequest({url: '/api/signup', method: 'POST', body: newUser})
-}
+export const getUserById = (userId) => ajaxRequest({url: `/api/users/id/${userId}`, method: 'GET'})
+
+export const addUser = (newUser) => { return ajaxRequest({url: '/api/signup', method: 'POST', body: newUser}) }
 
 export const updateUser = (user) => ajaxRequest({url: `/api/users/${user._id}`, method: 'PUT', body: user})
 

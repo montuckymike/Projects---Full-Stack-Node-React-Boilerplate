@@ -40,7 +40,7 @@ class UserDataProvider extends Component {
       ServerApi.deleteUser(userId)
         .then(this.methods.getAllUsers),
 
-    findUserById: (profileId) => {
+    getUserById: (profileId) => {
       for (let i = 0; i < this.state.profile.length; i++) {
         const currentProfile = this.state.profile[i]
         console.log(this.state.profile[i], 'user in userbyid')
