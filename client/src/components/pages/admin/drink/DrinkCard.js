@@ -21,7 +21,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-    width: '25%',
+    width: '100%',
     margin: 25,
     borderRadius: '50px 50px 50px 50px',
     paddingBottom: '20px'
@@ -31,7 +31,8 @@ const styles = {
     borderRadius: '50px 50px 0 0'
   },
   drinkTitle: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: '3em'
   },
   imageTitle: {
     background: '#ffffff',
