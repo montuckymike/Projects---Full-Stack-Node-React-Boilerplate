@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // import Typography from 'material-ui/Typography'
 import DrinkCard from '../admin/drink/DrinkCard'
 import ProgressLinear from '../../presentation/ProgressLinear'
+import { HashLoader } from 'react-spinners'
 
 const styles = {
   main: {
@@ -66,7 +67,14 @@ const Randomizer = (props) => {
                 key={props.drinkData.randomDrink._id}
                 drink={props.drinkData.randomDrink}
               />
-              : <h1> <ProgressLinear /> No Drinks </h1>
+              :
+              <div>
+                <HashLoader
+                  color={'#123abc'}
+                  loading={this.state.loading}
+                />
+                <h1> No Drinks </h1>
+              </div>
           }
         </div>
       </div>

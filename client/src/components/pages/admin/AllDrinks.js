@@ -11,13 +11,17 @@ const propTypes = {
 }
 
 const styles = {
-  drinkCard: {
+  drinkCardContainer: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginBottom: '20px',
-    width: '75%',
+    width: '100%',
     justifyContent: 'center'
+  },
+  drinkCardCard: {
+    width: '25%',
+    margin: '1%'
   },
   mainDiv: {
     height: 500,
@@ -58,15 +62,17 @@ const AllDrinks = ({drinkData, classes}) => {
         <h1 className={classes.heroTitle}> All the Drinks </h1>
         <h3 className={classes.heroSubTitle}>Here is the list of all the drinks</h3>
       </div>
-      <div className={classes.drinkCard} >
+      <div className={classes.drinkCardContainer} >
         {
           drinkData && drinkData.drinks && drinkData.drinks.length > 0
             ? drinkData.drinks.map(drink =>
-              <DrinkCard
-                key={drink._id}
-                drink={drink}
-                onDelete={() => drinkData.deleteDrink(drink._id)}
-              />
+              <div className={classes.drinkCardCard}>
+                <DrinkCard
+                  key={drink._id}
+                  drink={drink}
+                  onDelete={() => drinkData.deleteDrink(drink._id)}
+                />
+              </div>
             ) : <h1> No Drinks </h1>
         }
       </div>

@@ -31,8 +31,7 @@ const styles = {
     borderRadius: '50px 50px 0 0'
   },
   drinkTitle: {
-    textAlign: 'center',
-    fontSize: '3em'
+    textAlign: 'center'
   },
   imageTitle: {
     background: '#ffffff',
