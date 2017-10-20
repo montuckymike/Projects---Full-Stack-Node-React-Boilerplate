@@ -1,6 +1,7 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import NestedList from './nestedList'
+import {Link} from 'react-router-dom'
 import {signupBtn, randomizerBtn} from '../presentation/Buttons'
 
 const styles = {
@@ -107,6 +108,39 @@ const styles = {
     color: 'white',
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  EditButton: {
+    backgroundColor: '#494949',
+    color: 'white',
+    border: 'solid #34495e 2px',
+    padding: 10,
+    fontSize: 20,
+    borderRadius: 4,
+    textAlign: 'center',
+    textDecoration: 'none'
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '50%',
+    marginBottom: 10,
+    justifyContent: 'space-around',
+    background: '#ecf0f1'
+  },
+  EditButton2: {
+    backgroundColor: '#494949',
+    color: 'white',
+    padding: 10,
+    fontSize: 20,
+    borderRadius: 4,
+    textAlign: 'center',
+    textDecoration: 'none'
+  },
+  buttonContainer2: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '30%',
+    justifyContent: 'space-around',
   }
 }
 
@@ -142,6 +176,11 @@ const Home = (props) => {
           <h4>Worry no more because the Drink Randomizer 2000 is here to save the day!</h4>
           <h4>Every User can enjoy clicking the Randomizer 2000 button on our app page and have a random coffee drink selected for you.</h4>
           <h4>No longer do you have to agonize over which delicious beverage to enjoy.  Let us do the work for you!</h4>
+          <div className={props.classes.buttonContainer}>
+            <Link className={props.classes.EditButton} to={'/Randomizer'}>
+              Randomizer 2000
+            </Link>
+          </div>
         </div>
         <div className={props.classes.futurePic}>
           <img className={props.classes.futurePicImg} src='https://burst.shopifycdn.com/photos/woman-holding-coffee-mug_925x@2x.jpg' />
@@ -151,9 +190,11 @@ const Home = (props) => {
         <div className={props.classes.heroText}>
           <h1 className={props.classes.heroTitle}> Friends with Benefits ;) </h1>
           <h3 className={props.classes.heroSubTitle}>Become a Premium Member to Unlock All The Features</h3>
-          <signupBtn />
-          button should be here 
-          <randomizerBtn />
+          <div className={props.classes.buttonContainer2}>
+            <Link className={props.classes.EditButton2} to={'/Randomizer'}>
+              Randomizer 2000
+            </Link>
+          </div>
         </div>
       </div>
       <div>
@@ -172,8 +213,10 @@ const Home = (props) => {
           <div>
             <h1>What are you waiting for?</h1>
           </div>
-          <div>
-            <button>Radomize Now!</button>
+          <div className={props.classes.buttonContainer2}>
+            <Link className={props.classes.EditButton2} to={'/Randomizer'}>
+              Randomizer 2000
+            </Link>
           </div>
         </div>
       </div>
