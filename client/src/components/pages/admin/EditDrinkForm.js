@@ -36,6 +36,9 @@ const styles = {
     fontFamily: 'Merriweather',
     margin: 10,
     paddingLeft: '70%'
+  },
+  spacer: {
+    marginTop: '120px'
   }
 }
 
@@ -57,7 +60,7 @@ const enhancer = injectSheet(styles)
 const EditDrinkForm = props => {
   const { classes } = props
   return (
-    <div>
+    <div className={props.classes.spacer}>
       <h1 className={classes.header}>Edit A Drink</h1>
       <div className={props.classes.formAndPhotoBucket} >
         <img className={props.classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />

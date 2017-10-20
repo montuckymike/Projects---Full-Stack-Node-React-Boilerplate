@@ -32,6 +32,9 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'flex-end',
     width: '25%'
+  },
+  gravatarImg: {
+    borderRadius: '50px'
   }
 }
 const enhancer = injectSheet(styles)
