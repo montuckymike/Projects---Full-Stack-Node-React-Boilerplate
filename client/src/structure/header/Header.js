@@ -5,7 +5,8 @@ import Avatar from 'material-ui/Avatar'
 import PropTypes from 'prop-types'
 
 const propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  userData: PropTypes.object.isRequired
 }
 
 const styles = {
