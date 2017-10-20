@@ -1,8 +1,8 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import NestedList from './nestedList'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import {signupBtn, randomizerBtn} from '../presentation/Buttons'
 
 const styles = {
   mainDiv: {
@@ -59,7 +59,6 @@ const styles = {
     justifyContent: 'space-between',
     marginLeft: '10%',
     marginRight: '10%',
-    marginTop: '100px',
     marginBottom: '100px'
   },
   iconImg: {
@@ -249,7 +248,16 @@ const styles = {
     justifyContent: 'center',
     marginBottom: '50px',
     marginTop: '25px'
+  },
+  steps: {
+    textAlign: 'center',
+    marginTop: '100px',
+    marginBottom: '100px'
   }
+}
+
+const propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 const enhancer = injectSheet(styles)
@@ -266,17 +274,23 @@ const Home = (props) => {
           <img className={props.classes.heroGraphic} src='http://www.starbucks.com.sg/img/mobile-app/iphone_android-rev.png?20160827' />
         </div>
       </div>
+      <div className={props.classes.steps}>
+        <h1> Three Easy Steps to Get Your Coffee </h1>
+      </div>
       <div className={props.classes.iconDiv}>
         <div className={props.classes.iconImg}>
-          <img src='https://freeiconshop.com/wp-content/uploads/edd/coffee-takeaway-flat.png' />
+          <img src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
           <h1>Open App</h1>
         </div>
         <div className={props.classes.iconImg}>
           <img src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-          <h1>Click Randomizer</h1>
+          <Link to={'/Randomizer'}>
+            <h1>Click Randomizer</h1>
+          </Link>
+
         </div>
         <div className={props.classes.iconImg}>
-          <img src='https://freeiconshop.com/wp-content/uploads/edd/coffee-flat.png' />
+          <img src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
           <h1>Get Drink</h1>
         </div>
       </div>
@@ -305,7 +319,7 @@ const Home = (props) => {
               With the click of a button you can put all of your worries aside and let our Randomizer 2000 do the heavy lifting
             </div>
             <div className={props.classes.leftBucketIcon}>
-              <img className={props.classes.leftImg} src='https://freeiconshop.com/wp-content/uploads/edd/coffee-takeaway-flat.png' />
+              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
             </div>
           </div>
 
@@ -314,38 +328,32 @@ const Home = (props) => {
               Take advantage of our currated list of delicious beverages with the click of a button.
             </div>
             <div className={props.classes.leftBucketIcon}>
-              <img className={props.classes.leftImg} src='https://freeiconshop.com/wp-content/uploads/edd/coffee-takeaway-flat.png' />
+              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
             </div>
           </div>
 
         </div>
-
-
         <div className={props.classes.futureIconBucketCenter}>
           <img src='https://cdn4.iconfinder.com/data/icons/Starbucks_coffee/PNG/512x512/starbucks_coffee_3.png' />
         </div>
-
-
         <div className={props.classes.futureIconBucketRight}>
-        <div className={props.classes.leftBucket}>
-          <div className={props.classes.leftBucketIcon}>
-            <img className={props.classes.leftImg} src='https://freeiconshop.com/wp-content/uploads/edd/coffee-takeaway-flat.png' />
+          <div className={props.classes.leftBucket}>
+            <div className={props.classes.leftBucketIcon}>
+              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
+            </div>
+            <div className={props.classes.leftBucketText}>
+              If you are not finding a drink to your liking you can add drinks to our database.  Then simply Randomize away!
+            </div>
           </div>
-          <div className={props.classes.leftBucketText}>
-            If you are not finding a drink to your liking you can add drinks to our database.  Then simply Randomize away!
+          <div className={props.classes.leftBucket}>
+            <div className={props.classes.leftBucketIcon}>
+              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
+            </div>
+            <div className={props.classes.leftBucketText}>
+              All of your favorite drinks that normally are too difficult to pick from.  Our Randomizer 2000 makes your life easier.
+            </div>
           </div>
         </div>
-        <div className={props.classes.leftBucket}>
-          <div className={props.classes.leftBucketIcon}>
-            <img className={props.classes.leftImg} src='https://freeiconshop.com/wp-content/uploads/edd/coffee-takeaway-flat.png' />
-          </div>
-          <div className={props.classes.leftBucketText}>
-            All of your favorite drinks that normally are too difficult to pick from.  Our Randomizer 2000 makes your life easier.
-          </div>
-        </div>
-        </div>
-
-
       </div>
       <div className={props.classes.futureButton}>
         <div className={props.classes.buttonContainer}>
@@ -354,9 +362,6 @@ const Home = (props) => {
           </Link>
         </div>
       </div>
-
-
-
       <div className={props.classes.parallaxDiv}>
         <div className={props.classes.heroText}>
           <h1 className={props.classes.heroTitle}> Friends with Benefits ;) </h1>
@@ -394,5 +399,7 @@ const Home = (props) => {
     </div>
   )
 }
+
+Home.propTypes = propTypes
 
 export default enhancer(Home)
