@@ -4,8 +4,7 @@ import injectSheet from 'react-jss'
 import PropTypes from 'prop-types'
 
 const propTypes = {
-  classes: PropTypes.object.isRequired,
-  userData: PropTypes.func.isRequired
+  classes: PropTypes.object.isRequired
 }
 
 const styles = {
@@ -34,8 +33,6 @@ const NavBar = props => {
       <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
       <NavLink className={classes.links} to='/Login'>Login</NavLink>
       <NavLink className={classes.links} to='/Profile'>Profile</NavLink>
-      <NavLink className={classes.links} to='/TopTen'>Top Ten</NavLink>
-
     </div>
   )
 }

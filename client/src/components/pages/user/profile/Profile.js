@@ -21,7 +21,7 @@ const styles = {
   },
   card: {
     maxWidth: 355,
-    height: 415,
+    height: 365,
     marginTop: 100,
     marginLeft: 10
   },
@@ -60,8 +60,6 @@ const Profile = props => {
           <div className={classes.header}> First Name: {props.firstName}</div>
           <div className={classes.header}> Last Name: {props.lastName}</div>
           <div className={classes.header}> Email: {props.email}</div>
-          <div className={classes.header}> Favorite Coffee: {props.favoriteCoffee}</div>
-          <div className={classes.header}> Favorite Coffee Shop: {props.favoriteCoffeeShop}</div>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button dense color='primary'>
