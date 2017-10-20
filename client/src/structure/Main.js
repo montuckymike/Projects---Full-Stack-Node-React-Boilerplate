@@ -16,25 +16,21 @@ import PropTypes from 'prop-types'
 
 const propTypes = {
   drinkData: PropTypes.object.isRequired,
-  userData: PropTypes.object.isRequired
+  userData: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 }
 
 const styles = {
   main: {
-    position: 'fixed',
-    padding: 0,
-    top: 50,
-    bottom: 25,
-    left: 0,
-    right: 0
+    marginTop: 0
   }
 }
 
 const enhancer = injectSheet(styles)
 
-const Main = ({drinkData, userData}) => {
+const Main = ({drinkData, userData, classes}) => {
   return (
-    <div>
+    <div className={classes.main}>
       <Route path='/'exact component={Home} />
       <Route path='/AddDrink' render={() => <AddDrinkContainer drinkData={drinkData} />} />
       <Route path='/AllDrinks' render={() => <AllDrinks drinkData={drinkData} />} />

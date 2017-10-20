@@ -61,6 +61,9 @@ const styles = {
   },
   header: {
     fontFamily: 'Merriweather'
+  },
+  spacer: {
+    marginTop: '120px'
   }
 }
 
@@ -70,7 +73,7 @@ const CreateUser = props => {
   const { classes } = props
 
   return (
-    <div>
+    <div className={classes.spacer}>
       <h1 className={classes.header}> Hello New User</h1>
       <div className={classes.container}>
         <img className={classes.img} src='https://images.unsplash.com/photo-1490890870453-549b7f8d3bb5?dpr=1&auto=compress,format&fit=crop&w=583&h=&q=80&cs=tinysrgb&crop=' />
@@ -99,6 +102,7 @@ const CreateUser = props => {
           <TextField
             id='password'
             label='Password'
+            type='password'
             className={classes.textField}
             value={props.password}
             onChange={props.onPasswordChanged}

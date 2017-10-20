@@ -2,41 +2,60 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import injectSheet from 'react-jss'
 import PropTypes from 'prop-types'
+import Gravatar from 'react-gravatar'
 
 const propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  userData: PropTypes.object.isRequired
 }
 
 const styles = {
   navLinks: {
-    border: 'solid black',
     display: 'flex',
-    justifyContent: 'space-between',
-    padding: 20
+    padding: 20,
+    top: 0,
+    width: '100%'
   },
   links: {
     textDecoration: 'none',
     color: 'black',
     fontFamily: 'Merriweather'
+  },
+  navLinksLinks: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '75%'
+  },
+  navLinksGravatar: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    width: '25%'
   }
 }
 const enhancer = injectSheet(styles)
 
 const NavBar = props => {
-  const { classes } = props
+  const { classes, userData } = props
   return (
     <div className={classes.navLinks}>
-      <NavLink className={classes.links} to='/'>Home</NavLink>
-      <NavLink className={classes.links} to='/Randomizer'>Randomizer</NavLink>
-      <NavLink className={classes.links} to='/AllDrinks'>All Drinks</NavLink>
-      <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
-      <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
-      <NavLink className={classes.links} to='/Login'>Login</NavLink>
-      <NavLink className={classes.links} to='/Profile'>Profile</NavLink>
+      <div className={classes.navLinksLinks}>
+        <NavLink className={classes.links} to='/'>Home</NavLink>
+        <NavLink className={classes.links} to='/Randomizer'>Randomizer</NavLink>
+        <NavLink className={classes.links} to='/AllDrinks'>All Drinks</NavLink>
+        <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
+        { !userData.user ? <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
+          : null }
+        { !userData.user ? <NavLink className={classes.links} to='/Login'>Login</NavLink> : null }
+        { userData.user ? <NavLink className={classes.links} to='/Profile'>Profile</NavLink> : null}
+      </div>
+      <div className={classes.navLinksGravatar}>
+        <Gravatar className={classes.gravatarImg} email={userData && userData.user ? userData.user.local.email : 'one@gmail.com'} size={60} rating='pg' default='wavatar' />
+      </div>
     </div>
   )
 }
-
 NavBar.propTypes = propTypes
 
 export default enhancer(NavBar)

@@ -17,7 +17,8 @@ const propTypes = {
 const styles = {
   mainDiv: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: '100px'
   },
   card: {
     maxWidth: 355,
@@ -42,6 +43,9 @@ const styles = {
   },
   typography: {
     height: 600
+  },
+  buttonLink: {
+    textDecoration: 'none'
   }
 }
 
@@ -63,13 +67,13 @@ const Profile = props => {
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button dense color='primary'>
-            <Link to='/Randomizer'>Randomizer</Link>
+            <Link className={classes.buttonLink} to='/Randomizer'>Randomizer</Link>
           </Button>
           <Button dense color='primary' >
-            <Link to='/TopTen'>Top Ten</Link>
+            <Link className={classes.buttonLink} to='/'>Home</Link>
           </Button>
           <Button dense color='primary'>
-            <Link to='/EditProfile'>Edit Profile</Link>
+            <Link className={classes.buttonLink} to='/EditProfile'>Edit Profile</Link>
           </Button>
         </CardActions>
       </Card>

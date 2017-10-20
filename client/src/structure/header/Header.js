@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
 import injectSheet from 'react-jss'
-import Avatar from 'material-ui/Avatar'
+import Gravatar from 'react-gravatar'
 import PropTypes from 'prop-types'
 
 const propTypes = {
@@ -14,6 +14,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'fixed !important',
+    top: 0,
+    zIndex: 1,
+    background: 'rgba(250,250,250,.5)',
+    width: '100%'
   },
   navPanel: {
     width: '100vw',
@@ -33,23 +43,19 @@ const styles = {
     marginTop: 10,
     width: '55%',
     height: 40
+  },
+  gravatarImg: {
+    borderRadius: '50px 50px 50px 50px'
   }
 }
 
 const enhancer = injectSheet(styles)
 
 const Header = props => {
-  const { classes } = props
+  const { classes, userData } = props
   return (
-    <header>
-      <div className={classes.masterDiv}>
-        <div className={classes.navPanel}>
-          <NavBar />
-        </div>
-        <div className={classes.gravatar}>
-          <Avatar className={classes.avatar}src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-        </div>
-      </div>
+    <header className={classes.header}>
+      <NavBar userData={userData} />
     </header>
   )
 }

@@ -48,6 +48,9 @@ const styles = {
   header: {
     fontFamily: 'Merriweather',
     paddingLeft: '63%'
+  },
+  spacer: {
+    marginTop: '120px'
   }
 }
 
@@ -57,7 +60,7 @@ const LoginForm = props => {
   const { classes } = props
 
   return (
-    <div>
+    <div className={classes.spacer}>
       <h1 className={classes.header}> Membership Login </h1>
       <div className={classes.container}>
         <img className={classes.img} src='https://static1.squarespace.com/static/53c560bde4b013ba8747544a/t/5966b773a803bbd1f9bafc77/1499904319096/sca-barista-skills' />
@@ -72,6 +75,7 @@ const LoginForm = props => {
           <TextField
             id='password'
             label='Password'
+            type='password'
             className={classes.textField}
             value={props.password}
             onChange={props.onPasswordChanged}

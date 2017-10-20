@@ -12,7 +12,7 @@ const propTypes = {
 const Layout = ({drinkData, userData}) => {
   return (
     <div>
-      <Header />
+      <Header userData={userData} />
       <Main drinkData={drinkData} userData={userData} />
       <Footer />
     </div>
