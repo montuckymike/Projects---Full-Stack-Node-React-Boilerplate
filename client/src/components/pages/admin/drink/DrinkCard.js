@@ -56,6 +56,16 @@ const styles = {
     fontSize: 20,
     borderRadius: 4
   },
+  EditButton: {
+    backgroundColor: '#494949',
+    color: 'white',
+    border: 'solid #34495e 2px',
+    padding: 10,
+    fontSize: 20,
+    borderRadius: 4,
+    textAlign: 'center',
+    textDecoration: 'none'
+  },
   buttonContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -118,7 +128,7 @@ const DrinkCard = props => {
         </div>
       </div>
       <div className={classes.buttonContainer}>
-        <Link className={classes.button} to={`/EditDrink/${props.drink._id}`}>
+        <Link className={classes.EditButton} to={`/EditDrink/${props.drink._id}`}>
           Edit
         </Link>
       </div>

@@ -6,16 +6,34 @@ import PropTypes from 'prop-types'
 import DrinkCard from '../admin/drink/DrinkCard'
 
 const styles = {
-  main: {
-    border: 'solid pink'
-  },
-  heroImage: {
+  mainDiv: {
+    height: 600,
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
     backgroundImage: 'url("https://burst.shopifycdn.com/photos/espresso-cinemagraph.gif")',
-    height: 500
+    clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
+    position: 'relative',
+    justifyContent: 'center'
+  },
+  heroTitle: {
+    fontSize: '4em',
+    color: 'white',
+    fontFamily: 'Bookman',
+    textShadow: '1px 1px 2px black'
+  },
+  heroButton: {
+    width: '25%'
+  },
+  heroSubTitle: {
+    fontSize: '2em',
+    color: 'white',
+    fontFamily: 'Bookman',
+    textShadow: '1px 1px 2px black'
   },
   randomizerCont: {
     display: 'flex',
@@ -77,6 +95,13 @@ const styles = {
     fontSize: '20px',
     fontFamily: 'Merriweather',
     color: 'white'
+  },
+  downArrow: {
+    width: '25%'
+  },
+  downArrowContainer: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 }
 const enhancer = injectSheet(styles)
@@ -91,9 +116,13 @@ const images = [
 
 const Randomizer = (props) => {
   return (
-    <div className={props.classes.main}>
-      <div className={props.classes.heroImage}>
-        <h1>Randomizer app card will render here</h1>
+    <div>
+      <div className={props.classes.mainDiv}>
+        <h1 className={props.classes.heroTitle}> Randomizer 2000 </h1>
+        <h3 className={props.classes.heroSubTitle}>Start Randomizing Now!</h3>
+        <div className={props.classes.downArrowContainer}>
+          <img className={props.classes.downArrow} src='https://media1.giphy.com/media/NLllWlDQJzipO/giphy.gif' />
+        </div>
       </div>
 
       <div className={props.classes.randomizerCont}>

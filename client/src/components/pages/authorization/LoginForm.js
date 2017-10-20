@@ -46,7 +46,8 @@ const styles = {
     height: '75vh'
   },
   header: {
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    paddingLeft: '63%'
   }
 }
 
