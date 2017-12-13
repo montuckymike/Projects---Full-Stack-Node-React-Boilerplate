@@ -9,9 +9,7 @@ const propTypes = {
   classes: PropTypes.object.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  favoriteCoffee: PropTypes.string.isRequired,
-  favoriteCoffeeShop: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired
 }
 
 const styles = {

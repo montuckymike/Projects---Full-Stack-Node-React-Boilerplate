@@ -60,7 +60,8 @@ const styles = {
     height: '75vh'
   },
   header: {
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    marginTop: '100%'
   },
   spacer: {
     marginTop: '120px'

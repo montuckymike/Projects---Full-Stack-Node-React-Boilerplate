@@ -40,6 +40,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
+    "material-ui": "next",
     "react-spinners": "^0.1.8"
   }
 }
