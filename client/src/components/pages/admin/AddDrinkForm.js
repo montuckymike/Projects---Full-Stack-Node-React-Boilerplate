@@ -60,10 +60,10 @@ const AddDrinkForm = props => {
   return (
     <div className={classes.spacer}>
       <h1 className={classes.header}>Add A Drink</h1>
-      <div className={props.classes.formAndPhotoBucket} >
-        <img className={props.classes.photo} src='https://images.unsplash.com/photo-1492158244976-29b84ba93025?dpr=1&auto=format&fit=crop&w=667&h=&q=60&cs=tinysrgb&crop=' />
-        <div className={props.classes.formBucket}>
-          <form className={props.classes.input}>
+      <div className={classes.formAndPhotoBucket} >
+        <img className={classes.photo} src='https://images.unsplash.com/photo-1492158244976-29b84ba93025?dpr=1&auto=format&fit=crop&w=667&h=&q=60&cs=tinysrgb&crop=' />
+        <div className={classes.formBucket}>
+          <form className={classes.input}>
             <Input
               placeholder='Drink Name'
               onChange={props.onNameChanged}
@@ -96,7 +96,7 @@ const AddDrinkForm = props => {
               }
               label='Sweet'
             />
-            <Button className={props.classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+            <Button className={classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
           </form>
         </div>
       </div>
